@@ -1,0 +1,25 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>{{title}}</h1>
+    <div>
+        <h2>{{ keeper.name }}</h2>
+        <p><strong>Family:</strong> {{ keeper.family }}</p>
+        <p><strong>Age:</strong> {{ keeper.age }}</p>
+        <p><strong>Gender:</strong> {{ keeper.gender }}</p>
+        <p><strong>Health Status:</strong> {{ keeper.health_status}}</p>
+        <p><strong>Enclosure:</strong> {{ keeper.enclosure}}</p>
+        <p><strong>Arrival Date:</strong> {{ keeper.arrival_date}}</p>
+    </div>
+    <a href="{% url 'add_animal_keeper' %}">Back to Animal List</a>
+</body>
+</html>

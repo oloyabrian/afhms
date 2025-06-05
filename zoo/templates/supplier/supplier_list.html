@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Animal List{% endblock %}
+
+{% block content %}
+
+
+    <!-- Main Content -->
+    <div class="content-area flex-grow-1 ms-4 p-3 bg-info-subtle rounded">
+        <h4 class="d-flex justify-content-between align-items-center">
+            Supplier Records
+            <a href="{% url 'add_supplier' %}" class="btn btn-outline-success btn-sm">Add Supplier Record</a>
+        </h4>
+
+          <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Count</th><th>First Name</th><th>Last Name</th><th>Company Name</th>
+                    <th>Company Type</th><th>Reg No:</th><th>Address</th><th>Phone</th>
+                    <th>Email</th><th>Website</th><th>Edit</th><th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for supplier in suppliers %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ supplier.first_name }}</td>
+                    <td>{{ supplier.last_name }}</td>
+                    <td>{{ supplier.company_name }}</td>
+                    <td>{{ supplier.company_type }}</td>
+                    <td>{{ supplier.company_registration_number }}</td>
+                    <td>{{ supplier.company_address }}</td>
+                    <td>{{ supplier.company_phone }}</td>
+                    <td>{{ supplier.company_email }}</td>
+                    <td>{{ supplier.company_website }}</td>
+                    <td><a href="{% url 'update_supplier' supplier.id %}" class="btn btn-sm btn-primary">Edit</a></td>
+                    <td>
+                        <form method="post" action="{% url 'delete_supplier' supplier.id %}" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+                                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Edit Supplier Modal -->
+<div class="modal fade" id="editSupplierModal" tabindex="-1" aria-labelledby="editSupplierModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form method="post" id="supplierUpdateForm">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Supplier</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="supplierFormContainer">
+                    <!-- Form content will be loaded here via AJAX -->
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- JavaScript to load form into modal -->
+<script>
+    $('#editSupplierModal').on('show.bs.modal', function (event) {
+        const button = $(event.relatedTarget);
+        const url = button.data('url');
+        $.get(url, function (data) {
+            $('#supplierFormContainer').html(data);
+        });
+    });
+</script>
+
+{% endblock %}

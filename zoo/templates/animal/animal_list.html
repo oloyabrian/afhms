@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Animal List{% endblock %}
+
+{% block content %}
+
+
+    <!-- Main Content -->
+    <div class="content-area flex-grow-1 ms-4 p-3 bg-info-subtle rounded">
+        <span>   {% for message in messages %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}</span>
+        <h4 class="d-flex justify-content-between align-items-center">
+            Animal Records
+            <a href="{% url 'add_animals' %}" class="btn btn-outline-success btn-sm">Add Animal</a>
+        </h4>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Count</th><th>Name</th><th>Species</th><th>Age</th><th>Breed</th>
+                    <th>Gender</th><th>Health</th><th>Enclosure</th><th>Edit</th><th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for animal in animals %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ animal.name }}</td>
+                    <td>{{ animal.family }}</td>
+                    <td>{{ animal.age }}</td>
+                    <td>{{ animal.breed }}</td>
+                    <td>{{ animal.gender }}</td>
+                    <td>{{ animal.health_status }}</td>
+                    <td>{{ animal.enclosure }}</td>
+                    <td><a href="{% url 'update_animal' animal.id %}" class="btn btn-sm btn-primary">Edit</a></td>
+                    <td>
+                        <form method="post" action="{% url 'delete_animal' animal.id %}" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Animal Edit Modal -->
+<div class="modal fade" id="editAnimalModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form method="post" id="editAnimalForm">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Animal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="animal_id" id="editAnimalId">
+                    <div class="mb-3">
+                        <label>Name</label>
+                        <input type="text" name="name" id="editName" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Species</label>
+                        <input type="text" name="family" id="editFamily" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Age</label>
+                        <input type="number" name="age" id="editAge" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Breed</label>
+                        <input type="text" name="breed" id="editBreed" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Gender</label>
+                        <input type="text" name="gender" id="editGender" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Health Status</label>
+                        <input type="text" name="health_status" id="editHealth" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Enclosure</label>
+                        <input type="text" name="enclosure" id="editEnclosure" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const editAnimalModal = document.getElementById('editAnimalModal');
+    editAnimalModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const modal = this;
+
+        const id = button.getAttribute('data-id');
+        const name = button.getAttribute('data-name');
+        const family = button.getAttribute('data-family');
+        const age = button.getAttribute('data-age');
+        const breed = button.getAttribute('data-breed');
+        const gender = button.getAttribute('data-gender');
+        const health = button.getAttribute('data-health');
+        const enclosure = button.getAttribute('data-enclosure');
+
+        modal.querySelector('#editAnimalId').value = id;
+        modal.querySelector('#editName').value = name;
+        modal.querySelector('#editFamily').value = family;
+        modal.querySelector('#editAge').value = age;
+        modal.querySelector('#editBreed').value = breed;
+        modal.querySelector('#editGender').value = gender;
+        modal.querySelector('#editHealth').value = health;
+        modal.querySelector('#editEnclosure').value = enclosure;
+
+        const form = modal.querySelector('#editAnimalForm');
+form.action = `/update_animal/${id}/`;
+ });
+</script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Animal List{% endblock %}
+
+{% block content %}
+
+
+    <!-- Main Content -->
+    <div class="content-area flex-grow-1 ms-4 p-3 bg-info-subtle rounded">
+        <h4 class="d-flex justify-content-between align-items-center">
+            Feeding Records
+            <a href="{% url 'add_feeding_schedule' %}" class="btn btn-outline-success btn-sm">Add Feeding Record</a>
+        </h4>
+    <div class="display_table">
+    
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Count</th>
+                <th>Animal Name</th>
+                <th>Feeding Time</th>
+                <th>Food</th>
+                <th>Quantity</th>
+                <th>Date Added</th>
+                <th>Edit</th>
+                <th>Delet</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for feeding in feeding_schedule %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ feeding.animal }}</td>
+                    <td>{{ feeding.feeding_time }}</td>
+                    <td>{{ feeding.food_type }}</td>
+                    <td>{{ feeding.quantity }}</td>
+                    <td>{{ feeding.date_added }}</td>
+                    <td><a href="{% url 'update_feeding_schedule' feeding.id %}"  class="btn btn-sm btn-primary">Edit</a></td>
+                    <td>
+                        <form method="post" action="{% url 'delete_feeding_schedule' feeding.id %}" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+ </div>
+</div>
+ {% endblock %}
+  

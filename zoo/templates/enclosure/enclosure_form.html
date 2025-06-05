@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if form.instance.pk %}Update Enclosure{% else %}Add Enclosure{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4 bg-info-subtle p-4 rounded">
+    <h3 class="mb-4">
+        {% if form.instance.pk %}Update Enclosure{% else %}Add Enclosure{% endif %}
+    </h3>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            {% for field in form %}
+            <div class="mb-3 col-md-6">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div class="text-danger small">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-success">
+            {% if form.instance.pk %}Update{% else %}Add{% endif %}
+        </button>
+        <a href="{% url 'enclosure_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

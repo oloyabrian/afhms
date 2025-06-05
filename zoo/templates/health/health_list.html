@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Animal List{% endblock %}
+
+{% block content %}
+
+
+    <!-- Main Content -->
+    <div class="content-area flex-grow-1 ms-4 p-3 bg-info-subtle rounded">
+        <h4 class="d-flex justify-content-between align-items-center">
+            Animal Health Records
+            <a href="{% url 'add_health_check' %}" class="btn btn-outline-success btn-sm">Add Health Record</a>
+        </h4>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Count</th><th>Animal</th><th>Check Up Date</th><th>Weight</th>
+                    <th>Health Status</th><th>Temperature</th><th>Diagnosis</th><th>Treatment</th>
+                    <th>Veterinarian</th><th>Medication</th><th>Notes</th><th>Edit</th><th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for health in health_checks %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ health.animal }}</td>
+                    <td>{{ health.checkup_date }}</td>
+                    <td>{{ health.weight }}</td>
+                    <td>{{ health.health_status }}</td>
+                    <td>{{ health.temperature }}</td>
+                    <td>{{ health.diagnosis }}</td>
+                    <td>{{ health.treatment }}</td>
+                    <td>{{ health.veterinarian }}</td>
+                    <td>{{ health.medication }}</td>
+                    <td>{{ health.notes }}</td>
+                    <td><a href="{% url 'update_health_check' health.id %}" class="btn btn-sm btn-primary">Edit</a></td>
+                    <td>
+                        <form method="post" action="{% url 'delete_health_check' health.id %}" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+                    
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<!-- Health Edit Modal -->
+<div class="modal fade" id="editHealthModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form method="post" id="healthUpdateForm">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Health Record</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="healthFormContainer"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#editHealthModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var url = button.data('url');
+        $.get(url, function (data) {
+            $('#healthFormContainer').html(data);
+        });
+    });
+</script>
+{% endblock %}

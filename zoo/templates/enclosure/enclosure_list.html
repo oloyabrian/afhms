@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Animal List{% endblock %}
+
+{% block content %}
+
+
+    <!-- Main Content -->
+    <div class="content-area flex-grow-1 ms-4 p-3 bg-info-subtle rounded">
+        <h4 class="d-flex justify-content-between align-items-center">
+            Animal Habitat Records
+            <a href="{% url 'add_enclosure' %}" class="btn btn-outline-success btn-sm">Add Animal Habitat</a>
+        </h4>
+
+             
+                
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Count</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Capacity</th>
+                    <th>Current Occupancy</th>
+                    <th>Date Added</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enclosure in enclosures %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ enclosure.name }}</td>
+                    <td>{{ enclosure.type }}</td>
+                    <td>{{ enclosure.location }}</td>   
+                    <td>{{ enclosure.description }}</td>   
+                    <td>{{ enclosure.capacity }}</td> 
+                    <td>{{ enclosure.curent_occupancy }}</td> 
+                    <td>{{ enclosure.date_added|date:"M d, Y" }}</td> 
+                    <td><a href="{% url 'update_enclosure' enclosure.id %}" class="btn btn-sm btn-primary">Edit</a></td>
+                    <td>
+                        <form method="post" action="{% url 'delete_enclosure' enclosure.id %}" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+</div>
+{% endblock %}
