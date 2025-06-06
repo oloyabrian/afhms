@@ -46,7 +46,11 @@ def login_view(request):
         
         if user is not None:
             login(request, user)  # Make sure to log in the user first
-            return redirect('animal_list')
+            
+            if user.groups.filter(name='admin').exists():
+                return redirect('admin:index')
+            else:
+                return redirect('animal_list')
         else:
             messages.error(request, 'Enter a valid username and password!')
     
@@ -59,10 +63,10 @@ def logout_view(request):
     return redirect('login')
 
 
-@login_required(login_url= 'login')
-@allowed_users(allowed_roles=['admin'])
-def homePage(request):
-    return redirect('admin:index')
+# @login_required(login_url= 'login')
+def home_view(request):
+    context ={}
+    return render(request, 'home.html', context)
 
 
 

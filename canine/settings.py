@@ -28,6 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+LOGIN_URL = 'login/'
+LOGIN_REDIRECT_URL = '/animal_list/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -165,7 +168,7 @@ JAZZMIN_SETTINGS = {
         "show_user_email": True,
         "links": [
             {"name": "Profile", "url": "/admin/auth/user/", "icon": "fas fa-user"},
-            {"name": "Logout", "url": "login", "icon": "fas fa-sign-out-alt"},
+            {"name": "Logout", "url": "/admin/logout/", "icon": "fas fa-sign-out-alt"},
         ],
     },
     "icons": {
