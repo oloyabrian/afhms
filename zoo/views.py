@@ -46,11 +46,7 @@ def login_view(request):
         
         if user is not None:
             login(request, user)  # Make sure to log in the user first
-            
-            if user.groups.filter(name='admin').exists():
-                return redirect('admin:index')
-            else:
-                return redirect('animal_list')
+            return redirect('animal_list')
         else:
             messages.error(request, 'Enter a valid username and password!')
     

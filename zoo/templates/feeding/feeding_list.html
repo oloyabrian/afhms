@@ -36,7 +36,7 @@
                     <td>{{ feeding.food_type }}</td>
                     <td>{{ feeding.quantity }}</td>
                     <td>{{ feeding.date_added }}</td>
-                    <td><a href="{% url 'update_feeding_schedule' feeding.id %}"  class="btn btn-sm btn-primary">Edit</a></td>
+                    <td><a href="{% url 'update_feeding_schedule' feeding.id %}"  class="btn btn-sm btn-success">Edit</a></td>
                     <td>
                         <form method="post" action="{% url 'delete_feeding_schedule' feeding.id %}" onsubmit="return confirm('Are you sure you want to delete this record?');">
                             {% csrf_token %}

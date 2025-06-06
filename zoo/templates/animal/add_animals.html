@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container py-4">
     <div class="card shadow">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-success text-white">
             <h4 class="mb-0">{{ title}}</h4>
         </div>
         <div class="card-body">
@@ -15,8 +15,9 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="text-end">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <a href="{% url 'animal_list' %}" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="{% url 'animal_list' %}" class="btn btn-danger">Cancel</a>
+                   
                 </div>
             </form>
         </div>

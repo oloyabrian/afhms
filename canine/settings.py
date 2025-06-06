@@ -144,18 +144,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
     "site_title": "AFHR",
-    "copy_right": "Ruth_Kusiima",
+    "copy_right": "Ruth Kusiima",
     "site_header": 'AFHR',
     "site_logo": "images/logo.png",
     "site_logo_classes": "img-circle",
     "site_icon": "images/logo.png",
-    "welcome_sign": "Welcome to the Animal feeding and health management system",
+    "welcome_sign": "Welcome to the Animal Feeding and Health Management System",
     "show_sidebar": True,
     "navigation_expanded": True,
     "topmenu_links": [
         {"name": "Home", "url": "admin:index", "icon": "fas fa-home"},
-        {"name": "Documentation", "url": "https://docs.djangoproject.com/en/5.1/", "new_window": True, "icon": "fas fa-book"},
-        {"name": "Support", "url": "https://www.djangoproject.com/community/", "new_window": True, "icon": "fas fa-life-ring"},
+        {"name": "UWE website", "url": "https://uwec.ug/", "new_window": True, "icon": "fas fa-book"},
+        {"name": "UWA website", "url": "https://ugandawildlife.org/", "new_window": True, "icon": "fas fa-life-ring"},
+        {"name": "Records Assistance Page", "url": "animal_list", "icon": "fas fa-house"},
+
     ],
     "user_menu": {
         "show_user_image": True,
@@ -163,7 +165,7 @@ JAZZMIN_SETTINGS = {
         "show_user_email": True,
         "links": [
             {"name": "Profile", "url": "/admin/auth/user/", "icon": "fas fa-user"},
-            {"name": "Logout", "url": "logout/", "icon": "fas fa-sign-out-alt"},
+            {"name": "Logout", "url": "login", "icon": "fas fa-sign-out-alt"},
         ],
     },
     "icons": {

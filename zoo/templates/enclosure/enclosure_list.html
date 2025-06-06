@@ -41,7 +41,7 @@
                     <td>{{ enclosure.capacity }}</td> 
                     <td>{{ enclosure.curent_occupancy }}</td> 
                     <td>{{ enclosure.date_added|date:"M d, Y" }}</td> 
-                    <td><a href="{% url 'update_enclosure' enclosure.id %}" class="btn btn-sm btn-primary">Edit</a></td>
+                    <td><a href="{% url 'update_enclosure' enclosure.id %}" class="btn btn-sm btn-success">Edit</a></td>
                     <td>
                         <form method="post" action="{% url 'delete_enclosure' enclosure.id %}" onsubmit="return confirm('Are you sure you want to delete this record?');">
                             {% csrf_token %}
