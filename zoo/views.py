@@ -262,7 +262,12 @@ class FeedingScheduleView(View):
         return render(request, 'feeding/feeding_list.html', {'feeding_schedule': feeding_schedule})
 
 
-
+def delete_animal_keeper(request, animal_keeper_id):
+    animal_keeper = Animal_keeper.objects.get(id=animal_keeper_id)
+    if request.method == 'POST':
+        animal_keeper.delete()
+        return redirect('animal_keeper_list')
+    return render(request, 'delete.html', {'obj': animal_keeper})
 @login_required(login_url= 'login')
 def add_feeding_schedule(request):
     form = FeedingScheduleForm(request.POST or None)
