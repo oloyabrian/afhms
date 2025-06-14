@@ -64,8 +64,12 @@ def logout_view(request):
 
 
 # @login_required(login_url= 'login')
+from django.conf import settings
+
 def home_view(request):
-    context ={}
+    if not request.user.is_authenticated:
+        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+    context = {}
     return render(request, 'home.html', context)
 
 
@@ -195,7 +199,8 @@ def delete_enclosure(request, enclosure_id):
         return redirect('enclosure_list')
     return render(request, 'delete.html', {'obj': enclosure})
 
-class AnimalKeeperView(View):
+class AnimalKeeperView(LoginRequiredMixin, View):
+    login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         animal_keeper = Animal_keeper.objects.all()
         return render(request, 'keepers/keeper_list.html', {'animal_keeper': animal_keeper})
@@ -256,19 +261,22 @@ def export_animal_keepers_xlsx(request):
     return response
 
 
-class FeedingScheduleView(View):
+class FeedingScheduleView(LoginRequiredMixin, View):
+    login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         feeding_schedule = FeedingSchedule.objects.all()
         return render(request, 'feeding/feeding_list.html', {'feeding_schedule': feeding_schedule})
 
 
+@login_required(login_url='login')
 def delete_animal_keeper(request, animal_keeper_id):
     animal_keeper = Animal_keeper.objects.get(id=animal_keeper_id)
     if request.method == 'POST':
         animal_keeper.delete()
         return redirect('animal_keeper_list')
     return render(request, 'delete.html', {'obj': animal_keeper})
-@login_required(login_url= 'login')
+
+@login_required(login_url='login')
 def add_feeding_schedule(request):
     form = FeedingScheduleForm(request.POST or None)
     if form.is_valid():
@@ -321,13 +329,14 @@ def export_feeding_schedule_xlsx(request):
     return response
 
 
-class SupplierView(View):
+class SupplierView(LoginRequiredMixin, View):
+    login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         suppliers = Supplier.objects.all()
         return render(request, 'supplier/supplier_list.html', {'suppliers': suppliers})
 
 
-@login_required(login_url= 'login')
+@login_required(login_url='login')
 def add_supplier(request):
     form = SupplierForm(request.POST or None)
     if form.is_valid():
@@ -379,12 +388,13 @@ def export_suppliers_xlsx(request):
     response['Content-Disposition'] = 'attachment; filename="suppliers.xlsx"'
     return response
 
-class SupplyView(View):
+class SupplyView(LoginRequiredMixin, View):
+    login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         supplies = Supply.objects.all()
         return render(request, 'supply/supply_list.html', {'supplies': supplies})
     
-@login_required(login_url= 'login')
+@login_required(login_url='login')
 def add_supply(request):
     form = SupplyForm(request.POST or None)
     if form.is_valid():
@@ -435,12 +445,13 @@ def export_supplies_xlsx(request):
     response['Content-Disposition'] = 'attachment; filename="supplies.xlsx"'
     return response
 
-class HealthCheckView(View):
+class HealthCheckView(LoginRequiredMixin, View):
+    login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         health_checks = HealthCheck.objects.all()
         return render(request, 'health/health_list.html', {'health_checks': health_checks})
 
-@login_required(login_url= 'login')
+@login_required(login_url='login')
 def add_health_check(request):
     form = HealthCheckForm(request.POST or None)
     if form.is_valid():
@@ -491,13 +502,13 @@ def export_health_checks_xlsx(request):
     response['Content-Disposition'] = 'attachment; filename="health_checks.xlsx"'
     return response
 
-class VeterinarianView(View):
+class VeterinarianView(LoginRequiredMixin, View):
     def get(self, request):
         veterinarians = Veterinarian.objects.all()
         return render(request, 'vet/vet_list.html', {'veterinarians': veterinarians})
 
 
-@login_required(login_url= 'login')
+@login_required(login_url='login')
 def add_veterinarian(request):
     form = VeterinarianForm(request.POST or None)
     if form.is_valid():
@@ -535,21 +546,21 @@ def delete_veterinarian(request, veterinarian_id):
     return render(request, 'delete.html', {'obj': veterinarian})
 
 @login_required(login_url= 'login')
-def export_veterinarians_csv(request):  
+def export_veterinariaenclosure_lists_csv(request):  
     dataset = AnimalResource().export()
     response = HttpResponse(dataset.csv, content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="veterinarians.csv"'
+    response['Content-Disposition'] = 'attachment; filename="veterinarians_lists.csv"'
     return response
 
 
-@login_required(login_url= 'login')
+@login_required(login_url='login')
 def export_veterinarians_xlsx(request):
     dataset = AnimalResource().export()
     response = HttpResponse(dataset.xlsx, content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     response['Content-Disposition'] = 'attachment; filename="veterinarians.xlsx"'
     return response
 
-@login_required(login_url= 'login')
+@login_required(login_url='login')
 def export_animals_pdf(request):
     dataset = AnimalResource().export()
     response = HttpResponse(dataset.pdf, content_type='application/pdf')

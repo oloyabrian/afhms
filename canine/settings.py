@@ -144,11 +144,10 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 JAZZMIN_SETTINGS = {
-    "site_title": "AFHR",
-    "copy_right": "Ruth Kusiima",
-    "site_header": 'AFHR',
+    "site_title": "AFHMS",
+    "copy_right": "kusima the developer",
+    "site_header": 'AFHMS',
     "site_logo": "images/logo.png",
     "site_logo_classes": "img-circle",
     "site_icon": "images/logo.png",
