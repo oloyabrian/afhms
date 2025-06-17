@@ -105,7 +105,9 @@ def add_animals(request):
    form = AnimalForm(request.POST or None)
    if form.is_valid():
         form.save()
+        messages.success(request, 'Animal record added successfully!')
         return redirect('animal_list')
+   
    context = {
         "form": form,
         "title": "Add animal",
@@ -122,6 +124,7 @@ def update_animal(request, animal_id):
         form = AnimalForm(request.POST, instance=animal)
         if form.is_valid():
             form.save()
+            messages.success(request, "Animal record updated successfully!")
             return redirect('animal_list')
 
     context = {
@@ -136,8 +139,9 @@ def delete_animal(request, animal_id):
     animal = Animal.objects.get(id=animal_id)
     if request.method == 'POST':
         animal.delete()
+        messages.success(request, 'Animal record deleted successfully!')
+
         return redirect('/animal_list')
-    messages.success(request, 'Animal record deleted successfully!')
     return render(request, 'delete.html', {'obj': animal})
 
 
@@ -168,6 +172,7 @@ def add_enclosure(request):
     form = EnclosureForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Animal enclosure added successfully!')
         return redirect('enclosure_list')
     context = {
         "form": form,
@@ -183,6 +188,7 @@ def update_enclosure(request, enclosure_id):
         form = EnclosureForm(request.POST, instance=enclosure)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Animal enclosure updated successfully!')
         return redirect('enclosure_list')
     context = {
         "form": form,
@@ -196,6 +202,7 @@ def delete_enclosure(request, enclosure_id):
     enclosure = Enclosure.objects.get(id=enclosure_id)
     if request.method == 'POST':
         enclosure.delete()
+        messages.success(request, 'Animal enclosure deleted successfullt!')
         return redirect('enclosure_list')
     return render(request, 'delete.html', {'obj': enclosure})
 
@@ -211,6 +218,7 @@ def add_animal_keeper(request):
     form = AnimalKeeperForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Animal keeper record added successfully!')
         return redirect('animal_keeper_list')
     context = {
         "form": form,
@@ -227,6 +235,7 @@ def update_animal_keeper(request, animal_keeper_id):
         form = AnimalKeeperForm(request.POST, instance=animal_keeper)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Animal keeper record updated successfully!')
         return redirect('animal_keeper_list')
     
     context = {
@@ -241,6 +250,7 @@ def delete_animal_keeper(request, animal_keeper_id):
     animal_keeper = Animal_keeper.objects.get(id=animal_keeper_id)
     if request.method == 'POST':
         animal_keeper.delete()
+        messages.success(request, 'Animal keeper record deleted successfully!')
         return redirect('animal_keeper_list')
     return render(request, 'delete.html', {'obj': animal_keeper})
 
@@ -273,6 +283,7 @@ def delete_animal_keeper(request, animal_keeper_id):
     animal_keeper = Animal_keeper.objects.get(id=animal_keeper_id)
     if request.method == 'POST':
         animal_keeper.delete()
+        messages.success(request, 'Animal keeper record deleted successfully!')
         return redirect('animal_keeper_list')
     return render(request, 'delete.html', {'obj': animal_keeper})
 
@@ -281,6 +292,7 @@ def add_feeding_schedule(request):
     form = FeedingScheduleForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Feeding schedule added successfully!')
         return redirect('feeding_list')
     context = {
         "form": form,
@@ -297,6 +309,7 @@ def update_feeding_schedule(request, feeding_schedule_id):
         form = FeedingScheduleForm(request.POST, instance=feeding_schedule)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Feeding schedule updated successfully!')
         return redirect('feeding_list')
     context = {
         "form": form,
@@ -310,6 +323,7 @@ def delete_feeding_schedule(request, feeding_schedule_id):
     feeding_schedule = FeedingSchedule.objects.get(id=feeding_schedule_id)
     if request.method == 'POST':
         feeding_schedule.delete()
+        messages.success(request, 'Feeding schedule deleted successfully!')
         return redirect('feeding_list')
     return render(request, 'delete.html', {'obj': feeding_schedule})
 
@@ -341,6 +355,7 @@ def add_supplier(request):
     form = SupplierForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Supplier added successfully!')   
         return redirect('supplier_list')
     context = {
         "form": form,
@@ -357,6 +372,7 @@ def update_supplier(request, supplier_id):
         form = SupplierForm(request.POST, instance=supplier)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Supplier updated successfully!')
         return redirect('supplier_list')
     context = {
         "form": form,
@@ -370,6 +386,7 @@ def delete_supplier(request, supplier_id):
     supplier = Supplier.objects.get(id=supplier_id)
     if request.method == 'POST':
         supplier.delete()
+        messages.success(request, 'Supplier deleted successfully!')
         return redirect('supplier_list')
     return render(request, 'delete.html', {'obj': supplier})
 
@@ -399,6 +416,7 @@ def add_supply(request):
     form = SupplyForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Supply added successfully!') 
         return redirect('supply_list')
     context = {
         "form": form,
@@ -415,6 +433,7 @@ def update_supply(request, supply_id):
         form = SupplyForm(request.POST, instance=supply)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Supply updated successfully!')   
         return redirect('supply_list')
     context = {
         "form": form,
@@ -428,6 +447,7 @@ def delete_supply(request, supply_id):
     supply = Supply.objects.get(id=supply_id)
     if request.method == 'POST':
         supply.delete()
+        messages.success(request, 'Supply deleted successfully!')   
         return redirect('supply_list')
     return render(request, 'delete.html', {'obj': supply})
 
@@ -456,6 +476,7 @@ def add_health_check(request):
     form = HealthCheckForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Health check added successfully!')
         return redirect('health_check_list')
     context = {
         "form": form,
@@ -472,6 +493,7 @@ def update_health_check(request, health_check_id):
         form = HealthCheckForm(request.POST, instance=health_check)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Health record updated successfully!')
         return redirect('health_check_list')
     context = {
         "form": form,
@@ -485,6 +507,7 @@ def delete_health_check(request, health_check_id):
     health_check = HealthCheck.objects.get(id=health_check_id)
     if request.method == 'POST':
         health_check.delete()
+        messages.success(request, 'Health check deleted successfully!')
         return redirect('health_check_list')
     return render(request, 'delete.html', {'obj': health_check})
 
@@ -513,6 +536,7 @@ def add_veterinarian(request):
     form = VeterinarianForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Veterinarian added successfully!')
         return redirect('vet_list')
     context = {
         "form": form,
@@ -529,6 +553,7 @@ def update_veterinarian(request, veterinarian_id):
         form = VeterinarianForm(request.POST, instance=veterinarian)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Veterinarian updated successfully!') 
         return redirect('vet_list')
     context = {
         "form": form,
@@ -542,6 +567,7 @@ def delete_veterinarian(request, veterinarian_id):
     veterinarian = Veterinarian.objects.get(id=veterinarian_id)
     if request.method == 'POST':
         veterinarian.delete()
+        messages.success(request, 'Veterinarian deleted successfully!')
         return redirect('vet_list')
     return render(request, 'delete.html', {'obj': veterinarian})
 

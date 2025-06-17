@@ -94,14 +94,35 @@
             {% include 'includes/sidebar.html' %}
         </div>
 
-        <div class="content">
+        <div class="content p-4 space-y-4">
+            <!-- Flash Messages -->
+            {% if messages %}
+            <div id="flash-messages" class="space-y-2 w-full max-w-xl">
+                {% for message in messages %}
+                    <div class="bg-blue-100 border border-blue-300 text-blue-800 px-4 py-2 rounded-md shadow-sm text-center">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+          {% endif %}
+            <!-- Page content block -->
             {% block content %}
             <!-- Page content goes here -->
             {% endblock %}
         </div>
+        
     </div>
 
     {% include 'includes/footer.html' %}
+
+    <script>
+        setTimeout(function () {
+            const messages = document.getElementById('flash-messages');
+            if (messages) {
+                messages.style.display = 'none';
+            }
+        }, 4000); // 4000ms = 4 seconds
+    </script>
 
 </body>
 </html>
