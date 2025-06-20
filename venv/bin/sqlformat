@@ -1,4 +1,4 @@
-#!/home/oloya/Desktop/Projects/ruth_app/afhms/venv/bin/python3.12
+#!/var/www/ruth/afhms/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
