@@ -10,7 +10,15 @@
         Animal Records
         <a href="{% url 'add_animals' %}" class="btn btn-outline-success btn-sm">Add Animal</a>
     </h4>
-
+    <div>
+        <form method="get" action="{% url 'animal_list' %}" class="d-flex mb-3">
+            {{ myFilter.form.as_p }}
+            {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-sm">
+                    🔍 Search
+                </button>
+            
+    </div>
     <table class="table">
         <thead>
             <tr>

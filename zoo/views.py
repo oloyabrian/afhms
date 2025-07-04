@@ -15,6 +15,7 @@ from zoo.decorators import allowed_users, unauthenticated_user, admin_only
 from .models import Animal, Enclosure, Animal_keeper, FeedingSchedule, Supplier, Supply, HealthCheck, Veterinarian
 from django.http import HttpResponse
 from django.views import View
+from . import filters
 from .form import AnimalForm, AnimalKeeperForm, AnimalUpdateForm, CreateUserForm, EnclosureForm, FeedingScheduleForm, HealthCheckForm, SupplierForm, SupplyForm, VeterinarianForm
 
 
@@ -85,10 +86,19 @@ def userPage(request):
 # Create your views here.
 class AnimalListView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
-
+    
     def get(self, request):
         animals = Animal.objects.all()
-        return render(request, 'animal/animal_list.html', {'animals': animals})
+        animal_count= animals.count()
+        myFilter=filters.AnimalFilter(request.GET, queryset=animals)
+        animals = myFilter.qs  # Get the filtered queryset
+        context ={
+
+            'animals': animals,
+            'myFilter': myFilter,
+            'animal_count': animal_count,
+        }
+        return render(request, 'animal/animal_list.html', context)
 
 
 class AnimalDetailView(LoginRequiredMixin, View):

@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'import_export',
+    'django_filters',
+    "widget_tweaks",
+
 
 
    
@@ -156,7 +159,7 @@ JAZZMIN_SETTINGS = {
     "site_icon": "images/logo.png",
     "welcome_sign": "Welcome to the Animal Feeding and Health Management System",
     "show_sidebar": True,
-    "navigation_expanded": True,
+    "navigation_expanded": False,
     "topmenu_links": [
         {"name": "Home", "url": "admin:index", "icon": "fas fa-home"},
         {"name": "UWE website", "url": "https://uwec.ug/", "new_window": True, "icon": "fas fa-book"},
@@ -164,7 +167,7 @@ JAZZMIN_SETTINGS = {
         {"name": "Records Assistance Page", "url": "animal_list", "icon": "fas fa-house"},
 
     ],
-    "show_ui_builder": False,
+    "show_ui_builder": True,
     "user_menu": {
         "show_user_image": True,
         "show_username": True,
@@ -198,7 +201,7 @@ JAZZMIN_UI_TWEAKS = {
     "brand_small_text": False,
     "brand_colour": "navbar-success",
     "accent": "accent-lime",
-    "navbar": "navbar-cyan navbar-dark",
+    "navbar": "navbar-success navbar-dark",
     "no_navbar_border": False,
     "navbar_fixed": True,
     "layout_boxed": False,
