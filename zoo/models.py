@@ -1,5 +1,7 @@
 from django.db import models
 from decimal import ROUND_HALF_UP, Decimal
+from datetime import timezone
+import datetime
 
 
 
@@ -19,7 +21,7 @@ class Animal(models.Model):
     gender = models.CharField(max_length=10, choices=[('Male', 'Male'), ('Female', 'Female')])
     health_status = models.CharField(max_length=100, choices=[('Healthy', 'Healthy'), ('Sick', 'Sick')])
     enclosure = models.ForeignKey('Enclosure', on_delete=models.CASCADE)
-    arrival_date = models.DateField()
+    arrival_date = models.DateField(default=datetime.date.today())
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -47,7 +49,7 @@ class Animal_keeper(models.Model):
     telephone = models.CharField(max_length=100)
     email = models.EmailField(null=True, blank=True)
     address = models.TextField(null=True, blank=True)
-    hire_date = models.DateField()
+    hire_date = models.DateField(default=datetime.date.today())
     enclosure_id = models.ForeignKey(Enclosure, on_delete=models.CASCADE)
     date_added = models.DateTimeField(auto_now_add=True)
     def __str__(self):
@@ -72,7 +74,7 @@ class Veterinarian(models.Model):
     telephone = models.CharField(max_length=100)
     email = models.EmailField(null=True, blank=True)
     address = models.TextField(null=True, blank=True)
-    hire_date = models.DateField()
+    hire_date = models.DateField(default=datetime.date.today())
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -80,7 +82,7 @@ class Veterinarian(models.Model):
 
 class HealthCheck(models.Model):   
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
-    checkup_date = models.DateField()
+    checkup_date = models.DateField(default=datetime.date.today())
     weight = models.FloatField()
     health_status = models.CharField(max_length=100, choices=[('Healthy', 'Healthy'), ('Sick', 'Sick')])
     temperature = models.FloatField(null=True, blank=True)
@@ -88,9 +90,9 @@ class HealthCheck(models.Model):
     treatment = models.CharField(max_length=100, null=True, blank=True)
     veterinarian = models.ForeignKey(Veterinarian, on_delete=models.CASCADE)
     medication = models.CharField(max_length=100, null=True, blank=True)
-    follow_up_date = models.DateField(null=True, blank=True)
-    follow_up_notes = models.TextField(null=True, blank=True)
-    next_checkup = models.DateField(null=True, blank=True)
+    follow_up_date = models.DateField(default=datetime.date.today())
+    follow_up_notes = models.DateField(default=datetime.date.today())
+    next_checkup = models.DateField(default=datetime.date.today())
     notes = models.TextField(null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -132,5 +134,5 @@ class Supply(models.Model):
 
     total_price_display.short_description = "Total Price"
 
-    delivery_date = models.DateField()
+    delivery_date = models.DateField(default=datetime.date.today())
     date_added = models.DateTimeField(auto_now_add=True)

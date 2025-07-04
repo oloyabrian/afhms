@@ -2,127 +2,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}My Animal App{% endblock %}</title>
+    <title>{% block title %} Animal Feeding and Health Management System{% endblock %}</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header, footer {
-            background-color: #0b6825;
-            color: rgb(238, 250, 230);
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #64d29b;
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .main-wrapper {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 0.7fr 3.3fr;
-            gap: 5px;
-            padding: 10px;
-            background-color: #d9f1e7;
-        }
-
-        .sidebar {
-            background-color: #e0f7e9;
-            border-radius: 8px;
-            padding: 5px;
-            height: fit-content;
-        }
-
-        .content {
-            background-color: #d4f4ff;
-            border-radius: 8px;
-            padding: 5px;
-            min-height: 400px; /* Ensure it shows clearly */
-        }
-        
-        .footer-icons img {
-            height: 24px;
-            margin: 0 5px;
-            background-color: aliceblue;
-        }
-
-        .footer-icons a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .footer-icons a:hover {
-            color: #0b6825;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+   
 </head>
 <body>
 
     <header>
-        <h1>🐾 Animal Welfare Management System</h1>
+        <h1>🦁 Animal Feeding and Health Management System</h1>
     </header>
-
-    {% include 'includes/navbar.html' %}
-
-    <div class="main-wrapper">
-        <div class="sidebar">
-            {% include 'includes/sidebar.html' %}
-        </div>
-
-        <div class="content p-4 space-y-4">
-            <!-- Flash Messages -->
-            {% if messages %}
-            <div id="flash-messages" class="space-y-2 w-full max-w-xl">
-                {% for message in messages %}
-                    <div class="bg-blue-100 border border-blue-300 text-blue-800 px-4 py-2 rounded-md shadow-sm text-center">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-          {% endif %}
-            <!-- Page content block -->
-            {% block content %}
-            <!-- Page content goes here -->
-            {% endblock %}
-        </div>
-        
+    <div>
+       {% include 'includes/navbar.html' %} 
     </div>
-
-    {% include 'includes/footer.html' %}
-
-    <script>
-        setTimeout(function () {
-            const messages = document.getElementById('flash-messages');
-            if (messages) {
-                messages.style.display = 'none';
-            }
-        }, 4000); // 4000ms = 4 seconds
-    </script>
-
-</body>
-</html>
+    <div class="container-fluid px-0">
+        <div class="row g-0">
+            <!-- Sidebar: 2 columns -->
+            <div class="col-md-2 shadow-sm" style="min-height: 100vh; padding: 15px 0 15px 0px; background-color: #e9f9e9;">
+                {% include 'includes/sidebar.html' %}
+            </div>
+    
+            <!-- Content: 10 columns -->
+            <div class="col-md-10 py-3" style="background-color: #e9f9e9;">
+                {% if messages %}
+                <div id="flash-messages">
+                    {% for message in messages %}
+                        <div class="alert alert-info text-center shadow-sm">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+    
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <div>
+        {% include 'includes/footer.html' %}
+    </div>
+    

@@ -11,6 +11,7 @@ class AnimalForm(forms.ModelForm):
     class Meta:
         model = Animal
         fields = '__all__'
+        
 
     def clean_name(self):
         name = self.cleaned_data.get('name')

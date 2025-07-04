@@ -1,13 +1,45 @@
-<div class="p-3 bg-info-subtle rounded">
-    <h5>Animal Records</h5>
-    <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link active" href="{% url 'animal_list' %}">Animals</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'enclosure_list' %}">Enclosure</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'animal_keeper_list' %}">Animal Keepers</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'feeding_list' %}">Feeding</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'supply_list' %}">Supplies</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'supplier_list' %}">Suppliers</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'health_check_list' %}">Animal Health</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'vet_list' %}">Vets</a></li>
+<div class="bg-light rounded-start shadow-sm" style="padding: 15px 0 15px 15px;">
+    <h5 class="text-success fw-bold ps-2 mb-3"><i class="bi bi-list-ul me-2"></i>Animal Records</h5>
+    <ul class="nav flex-column sidebar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark ps-3" href="{% url 'animal_list' %}">
+                <i class="bi bi-kanban-fill me-2 text-success"></i> Animals
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark ps-3" href="{% url 'enclosure_list' %}">
+                <i class="bi bi-house-door-fill me-2 text-success"></i> Enclosure
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark ps-3" href="{% url 'animal_keeper_list' %}">
+                <i class="bi bi-person-badge-fill me-2 text-success"></i> Animal Keepers
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark ps-3" href="{% url 'feeding_list' %}">
+                <i class="bi bi-cup-straw me-2 text-success"></i> Feeding
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark ps-3" href="{% url 'supply_list' %}">
+                <i class="bi bi-truck-front-fill me-2 text-success"></i> Supplies
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark ps-3" href="{% url 'supplier_list' %}">
+                <i class="bi bi-people-fill me-2 text-success"></i> Suppliers
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark ps-3" href="{% url 'health_check_list' %}">
+                <i class="bi bi-heart-pulse-fill me-2 text-success"></i> Animal Health
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark ps-3" href="{% url 'vet_list' %}">
+                <i class="bi bi-clipboard2-pulse-fill me-2 text-success"></i> Vets
+            </a>
+        </li>
     </ul>
 </div>

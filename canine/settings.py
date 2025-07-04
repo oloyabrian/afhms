@@ -136,6 +136,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'zoo/static']
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
@@ -147,7 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
     "site_title": "AFHMS",
-    "copyright": "kusima the developer",
+    "copyright": "Animal Feeding and Health System",
     "site_header": 'AFHMS',
     "site_logo": "images/logo.png",
     "site_logo_classes": "img-circle",
@@ -162,6 +164,7 @@ JAZZMIN_SETTINGS = {
         {"name": "Records Assistance Page", "url": "animal_list", "icon": "fas fa-house"},
 
     ],
+    "show_ui_builder": False,
     "user_menu": {
         "show_user_image": True,
         "show_username": True,
@@ -187,4 +190,35 @@ JAZZMIN_SETTINGS = {
         {"name": "Privacy Policy", "url": "/privacy/", "new_window": False, "icon": "fas fa-shield-alt"},
         {"name": "Terms of Service", "url": "/terms/", "new_window": False, "icon": "fas fa-file-contract"},
     ],      
+}
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": True,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-success",
+    "accent": "accent-lime",
+    "navbar": "navbar-cyan navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": True,
+    "layout_boxed": False,
+    "footer_fixed": True,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-light-lightblue",
+    "sidebar_nav_small_text": True,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "flatly",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-outline-info",
+        "warning": "btn-outline-warning",
+        "danger": "btn-danger",
+        "success": "btn-outline-success"
+    }
 }

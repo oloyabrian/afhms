@@ -1,20 +1,23 @@
 {% load static %}
-<div class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="">
-        <img src="{% static 'images/logo.png' %}" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
-        AFHMS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-     
-      <div>
-        <span>Hello, <strong>{{ request.user }}</strong></span>
-        {% if request.user.is_staff %}
-        <a href="{% url 'admin:index' %}" class="btn btn-outline-secondary">Admin Page</a>
+<nav class="navbar navbar-expand-lg bg-success sticky-top shadow-sm" style="z-index: 1030;">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">
+      <img src="{% static 'images/logo.png' %}" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+      AFHMS
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+      <span class="navbar-text me-3 text-white">
+        Hello, <strong>{{ request.user }}</strong>
+      </span>
+      {% if request.user.is_staff %}
+        <a href="{% url 'admin:index' %}" class="btn btn-outline-light me-2">Admin Page</a>
       {% endif %}
-        <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
-     
-    </div> 
+      <a href="{% url 'logout' %}" class="btn btn-outline-light">Logout</a>
+    </div>
   </div>
-</div>
+</nav>
