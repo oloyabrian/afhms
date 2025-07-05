@@ -71,7 +71,6 @@ class SupplyFilter(django_filters.FilterSet):
         fields = {
             'supplier__first_name': ['icontains'],
             'quantity': ['gte', 'lte'],
-            'date_added': ['exact', 'gte', 'lte'],
         }
 
 class AnimalHealthFilter(django_filters.FilterSet):

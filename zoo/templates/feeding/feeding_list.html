@@ -9,10 +9,6 @@
 
     <!-- Main Content -->
     <div class="content-area flex-grow-1 ms-4 p-3 bg-info-subtle rounded">
-        <h4 class="d-flex justify-content-between align-items-center">
-            Feeding Records
-            <a href="{% url 'add_feeding_schedule' %}" class="btn btn-outline-success btn-sm">Add Feeding Record</a>
-        </h4>
         <div class="container my-3 p-3 bg-light rounded shadow-sm">
             <form method="get" action="{% url 'feeding_list' %}" class="row g-3">
                 {% csrf_token %}
@@ -33,6 +29,12 @@
                 </div>
             </form>
         </div>
+
+        <h4 class="d-flex justify-content-between align-items-center">
+            Feeding Records
+            <a href="{% url 'add_feeding_schedule' %}" class="btn btn-outline-success btn-sm">Add Feeding Record</a>
+        </h4>
+      
 
     <div class="display_table">
     
