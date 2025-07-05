@@ -59,7 +59,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for keeper in animal_keeper %}
+            {% for keeper in animal_keeper_pg %}
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{ keeper.first_name }}</td>
@@ -83,7 +83,19 @@
         </tbody>
     </table>
         </div>
+       
     </div>
+    <div>
+        {% if enclosures_pg.has_previous %}
+    <a href="?page=1">&laquo First</a>
+    <a href="?page={{ animal_keeper_pg.previous_page_number }}">« Previous</a>
+{% endif %}
+Page {{ animal_keeper_pg.number }} of {{ animal_keeper_pg.paginator.num_pages }}
+{% if animal_keeper_pg.has_next %}
+    <a href="?page={{ animal_keeper_pg.next_page_number }}">Next &raquo;</a>
+    <a href="?page={{ animal_keeper_pg.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+</div>
 </div>
 </div>
 {% endblock %}

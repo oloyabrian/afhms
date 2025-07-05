@@ -34,8 +34,7 @@
             Animal Health Records
             <a href="{% url 'add_health_check' %}" class="btn btn-outline-success btn-sm">Add Health Record</a>
         </h4>
-        
-
+        <div>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -45,7 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for health in health_checks %}
+                {% for health in health_checks_pg %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ health.animal }}</td>
@@ -73,35 +72,19 @@
         </table>
     </div>
 </div>
+<div>
+    {% if enclosures_pg.has_previous %}
+<a href="?page=1">&laquo First</a>
+<a href="?page={{ health_checks_pg.previous_page_number }}">« Previous</a>
+{% endif %}
+Page {{ health_checks_pg.number }} of {{ health_checks_pg.paginator.num_pages }}
+{% if health_checks_pg.has_next %}
+<a href="?page={{ health_checks_pg.next_page_number }}">Next &raquo;</a>
+<a href="?page={{ health_checks_pg.paginator.num_pages }}">Last &raquo;</a>
+{% endif %}
+</div>
+</div>
 </div>
 
-<!-- Health Edit Modal -->
-<div class="modal fade" id="editHealthModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <form method="post" id="healthUpdateForm">
-                {% csrf_token %}
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Health Record</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body" id="healthFormContainer"></div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
-<script>
-    $('#editHealthModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var url = button.data('url');
-        $.get(url, function (data) {
-            $('#healthFormContainer').html(data);
-        });
-    });
-</script>
 {% endblock %}

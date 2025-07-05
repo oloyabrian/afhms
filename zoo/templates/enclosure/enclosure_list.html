@@ -54,7 +54,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for enclosure in enclosures %}
+                {% for enclosure in enclosures_pg %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ enclosure.name }}</td>
@@ -74,8 +74,20 @@
                 {% endfor %}
             </tbody>
         </table>
+        
     </div>
+    <div>
+        {% if enclosures_pg.has_previous %}
+    <a href="?page=1">&laquo First</a>
+    <a href="?page={{ enclosures_pg.previous_page_number }}">« Previous</a>
+{% endif %}
+Page {{ enclosures_pg.number }} of {{ enclosures_pg.paginator.num_pages }}
+{% if enclosures_pg.has_next %}
+    <a href="?page={{ enclosures_pg.next_page_number }}">Next &raquo;</a>
+    <a href="?page={{ enclosures_pg.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+</div>
     </div>
-
+   
 </div>
 {% endblock %}

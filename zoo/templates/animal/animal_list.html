@@ -43,7 +43,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for animal in animals %}
+            {% for animal in animals_pg %}
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{ animal.name }}</td>
@@ -93,8 +93,20 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>
-        </div>
+        </div>                           
     </div>
+</div>
+<div>
+    
+{% if animals_pg.has_previous %}
+    <a href="?page=1">&laquo First</a>
+    <a href="?page={{ animals_pg.previous_page_number }}">« Previous</a>
+{% endif %}
+Page {{ animals_pg.number }} of {{ animals_pg.paginator.num_pages }}
+{% if animals_pg.has_next %}
+    <a href="?page={{ animals_pg.next_page_number }}">Next &raquo;</a>
+    <a href="?page={{ animals_pg.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
 </div>
 
 <script>

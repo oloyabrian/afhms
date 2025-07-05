@@ -1,5 +1,7 @@
 import django_filters
 
+from django_filters import DateFilter
+
 from .models import *
 
 class AnimalFilter(django_filters.FilterSet):
@@ -42,7 +44,6 @@ class VeterinarianFilter(django_filters.FilterSet):
         model = Veterinarian
         fields = {
             'first_name': ['icontains'],
-            'last_name': ['icontains'],
             'sex': ['exact'],
             'specialization': ['icontains'],
         }

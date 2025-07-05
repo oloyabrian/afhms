@@ -52,7 +52,7 @@
             </tr>
             </thead>
             <tbody>
-                {% for feeding in feeding_schedule %}
+                {% for feeding in feeding_schedule_pg %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ feeding.animal }}</td>
@@ -73,6 +73,17 @@
         </table>
     </div>
     </div>
+    <div>
+        {% if enclosures_pg.has_previous %}
+    <a href="?page=1">&laquo First</a>
+    <a href="?page={{ feeding_schedule_pg.previous_page_number }}">« Previous</a>
+{% endif %}
+Page {{ feeding_schedule_pg.number }} of {{ feeding_schedule_pg.paginator.num_pages }}
+{% if feeding_schedule_pg.has_next %}
+    <a href="?page={{ feeding_schedule_pg.next_page_number }}">Next &raquo;</a>
+    <a href="?page={{ feeding_schedule_pg.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+</div>
  </div>
 </div>
  {% endblock %}

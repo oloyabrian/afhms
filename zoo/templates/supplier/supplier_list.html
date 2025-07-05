@@ -45,7 +45,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for supplier in suppliers %}
+                {% for supplier in suppliers_pg %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ supplier.first_name }}</td>
@@ -70,40 +70,20 @@
             </tbody>
         </table>
     </div>
+<div>
+    {% if suppliers_pg.has_previous %}
+<a href="?page=1">&laquo First</a>
+<a href="?page={{ suppliers_pg.previous_page_number }}">« Previous</a>
+{% endif %}
+Page {{ suppliers_pg.number }} of {{ suppliers_pg.paginator.num_pages }}
+{% if suppliers_pg.has_next %}
+<a href="?page={{ suppliers_pg.next_page_number }}">Next &raquo;</a>
+<a href="?page={{ suppliers_pg.paginator.num_pages }}">Last &raquo;</a>
+{% endif %}
 </div>
-
-<!-- Edit Supplier Modal -->
-<div class="modal fade" id="editSupplierModal" tabindex="-1" aria-labelledby="editSupplierModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <form method="post" id="supplierUpdateForm">
-                {% csrf_token %}
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Supplier</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body" id="supplierFormContainer">
-                    <!-- Form content will be loaded here via AJAX -->
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </div>
 </div>
 </div>
 
-<!-- JavaScript to load form into modal -->
-<script>
-    $('#editSupplierModal').on('show.bs.modal', function (event) {
-        const button = $(event.relatedTarget);
-        const url = button.data('url');
-        $.get(url, function (data) {
-            $('#supplierFormContainer').html(data);
-        });
-    });
-</script>
+
 
 {% endblock %}
