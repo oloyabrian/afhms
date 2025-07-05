@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}Animal List{% endblock %}
 
@@ -12,6 +13,26 @@
             Supplier Records
             <a href="{% url 'add_supplier' %}" class="btn btn-outline-success btn-sm">Add Supplier Record</a>
         </h4>
+        <div class="container my-3 p-3 bg-light rounded shadow-sm">
+            <form method="get" action="{% url 'supplier_list' %}" class="row g-3">
+                {% csrf_token %}
+        
+                <!-- Render each filter field with spacing -->
+                {% for field in myFilter.form %}
+                    <div class="col-md-4">
+                        <label class="form-label">{{ field.label }}</label>
+                        {{ field|add_class:"form-control" }}
+                    </div>
+                {% endfor %}
+        
+                <!-- Submit button -->
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-primary btn-sm px-3">
+                        🔍 Search
+                    </button>
+                </div>
+            </form>
+        </div>
 
           <table class="table table-bordered">
             <thead>

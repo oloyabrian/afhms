@@ -45,6 +45,7 @@ class Enclosure(models.Model):
 class Animal_keeper(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    sex = models.CharField(max_length=10, choices=[('Male', 'Male'), ('Female', 'Female')], default='Male')
     position = models.CharField(max_length=100)
     telephone = models.CharField(max_length=100)
     email = models.EmailField(null=True, blank=True)
@@ -70,6 +71,7 @@ class FeedingSchedule(models.Model):
 class Veterinarian(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    sex = models.CharField(max_length=10, choices=[('Male', 'Male'), ('Female', 'Female')], default='Male')
     specialization = models.CharField(max_length=100)
     telephone = models.CharField(max_length=100)
     email = models.EmailField(null=True, blank=True)
@@ -103,6 +105,7 @@ class HealthCheck(models.Model):
 class Supplier(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    sex = models.CharField(max_length=10, choices=[('Male', 'Male'), ('Female', 'Female')], default='Male')
     company_name = models.CharField(max_length=100)
     company_type = models.CharField(max_length=100)
     company_registration_number = models.CharField(max_length=100)

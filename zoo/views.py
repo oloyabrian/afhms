@@ -173,7 +173,15 @@ def export_animals_xlsx(request):
 class EnclosureListView(View):
     def get(self, request):
         enclosures = Enclosure.objects.all()
-        return render(request, 'enclosure/enclosure_list.html', {'enclosures': enclosures})
+        enclosures_count = enclosures.count()
+        myFilter = filters.EnclosureFilter(request.GET, queryset=enclosures)
+        enclosures = myFilter.qs  # Get the filtered queryset
+        context = {
+            'enclosures': enclosures,
+            'myFilter': myFilter,
+            'enclosures_count': enclosures_count,
+        }
+        return render(request, 'enclosure/enclosure_list.html', context)
     
 
    
@@ -220,7 +228,15 @@ class AnimalKeeperView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         animal_keeper = Animal_keeper.objects.all()
-        return render(request, 'keepers/keeper_list.html', {'animal_keeper': animal_keeper})
+        animal_keeper_count = animal_keeper.count()
+        myFilter = filters.AnimalKeeperFilter(request.GET, queryset=animal_keeper)
+        animal_keeper = myFilter.qs  # Get the filtered queryset    
+        context = {
+            'animal_keeper': animal_keeper,
+            'myFilter': myFilter,
+            'animal_keeper_count': animal_keeper_count,
+        }
+        return render(request, 'keepers/keeper_list.html', context)
 
 
 @login_required(login_url= 'login')
@@ -285,7 +301,15 @@ class FeedingScheduleView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         feeding_schedule = FeedingSchedule.objects.all()
-        return render(request, 'feeding/feeding_list.html', {'feeding_schedule': feeding_schedule})
+        feeding_schedule_count = feeding_schedule.count()
+        myFilter = filters.FeedingScheduleFilter(request.GET, queryset=feeding_schedule)
+        feeding_schedule = myFilter.qs  # Get the filtered queryset
+        context = {
+            'feeding_schedule': feeding_schedule,
+            'myFilter': myFilter,
+            'feeding_schedule_count': feeding_schedule_count,
+        }
+        return render(request, 'feeding/feeding_list.html', context)
 
 
 @login_required(login_url='login')
@@ -357,7 +381,15 @@ class SupplierView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         suppliers = Supplier.objects.all()
-        return render(request, 'supplier/supplier_list.html', {'suppliers': suppliers})
+        suppliers_count = suppliers.count()
+        myFilter = filters.SupplierFilter(request.GET, queryset=suppliers)
+        suppliers = myFilter.qs  # Get the filtered queryset
+        context = {
+            'suppliers': suppliers,
+            'myFilter': myFilter,
+            'suppliers_count': suppliers_count,
+        }
+        return render(request, 'supplier/supplier_list.html', context)
 
 
 @login_required(login_url='login')
@@ -419,7 +451,15 @@ class SupplyView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         supplies = Supply.objects.all()
-        return render(request, 'supply/supply_list.html', {'supplies': supplies})
+        supplies_count = supplies.count()
+        myFilter = filters.SupplyFilter(request.GET, queryset=supplies)
+        supplies = myFilter.qs
+        context = {
+            'supplies': supplies,
+            'myFilter': myFilter,
+            'supplies_count': supplies_count,
+        }
+        return render(request, 'supply/supply_list.html', context)
     
 @login_required(login_url='login')
 def add_supply(request):
@@ -479,7 +519,15 @@ class HealthCheckView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
         health_checks = HealthCheck.objects.all()
-        return render(request, 'health/health_list.html', {'health_checks': health_checks})
+        health_checks_count = health_checks.count()
+        myFilter = filters.HealthCheckFilter(request.GET, queryset=health_checks)
+        health_checks = myFilter.qs
+        context = {
+            'health_checks': health_checks,
+            'myFilter': myFilter,
+            'health_checks_count': health_checks_count,
+        }
+        return render(request, 'health/health_list.html', context)
 
 @login_required(login_url='login')
 def add_health_check(request):
@@ -538,7 +586,15 @@ def export_health_checks_xlsx(request):
 class VeterinarianView(LoginRequiredMixin, View):
     def get(self, request):
         veterinarians = Veterinarian.objects.all()
-        return render(request, 'vet/vet_list.html', {'veterinarians': veterinarians})
+        veterinarians_count = veterinarians.count()
+        myFilter = filters.VeterinarianFilter(request.GET, queryset=veterinarians)
+        veterinarians = myFilter.qs  # Get the filtered queryset
+        context = {
+            'veterinarians': veterinarians,
+            'myFilter': myFilter,
+            'veterinarians_count': veterinarians_count,
+        }
+        return render(request, 'vet/vet_list.html', context)
 
 
 @login_required(login_url='login')

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load widget_tweaks %}
+
 
 {% block title %}Animal List{% endblock %}
 
@@ -10,14 +12,25 @@
         Animal Records
         <a href="{% url 'add_animals' %}" class="btn btn-outline-success btn-sm">Add Animal</a>
     </h4>
-    <div>
-        <form method="get" action="{% url 'animal_list' %}" class="d-flex mb-3">
-            {{ myFilter.form.as_p }}
+    <div class="container my-3 p-3 bg-light rounded shadow-sm">
+        <form method="get" action="{% url 'animal_list' %}" class="row g-3">
             {% csrf_token %}
-                <button type="submit" class="btn btn-primary btn-sm">
+    
+            <!-- Render each filter field with spacing -->
+            {% for field in myFilter.form %}
+                <div class="col-md-4">
+                    <label class="form-label">{{ field.label }}</label>
+                    {{ field|add_class:"form-control" }}
+                </div>
+            {% endfor %}
+    
+            <!-- Submit button -->
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary btn-sm px-3">
                     🔍 Search
                 </button>
-            
+            </div>
+        </form>
     </div>
     <table class="table">
         <thead>
