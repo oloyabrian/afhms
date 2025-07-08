@@ -1,0 +1,42 @@
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+[08/Jul/2025 07:33:17] "GET / HTTP/1.1" 302 0
+[08/Jul/2025 07:33:17] "GET /login/?next=/ HTTP/1.1" 200 3604
+[08/Jul/2025 07:33:31] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 07:33:31] "GET /admin/ HTTP/1.1" 200 53062
+[08/Jul/2025 07:33:31] "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[08/Jul/2025 07:33:31] "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[08/Jul/2025 07:33:31] "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 200 164819
+[08/Jul/2025 07:33:31] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[08/Jul/2025 07:33:31] "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[08/Jul/2025 07:33:31] "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[08/Jul/2025 07:33:31] "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[08/Jul/2025 07:33:31] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[08/Jul/2025 07:33:31] "GET /static/jazzmin/js/ui-builder.js HTTP/1.1" 200 13873
+[08/Jul/2025 07:33:31] "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[08/Jul/2025 07:33:31] "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[08/Jul/2025 07:33:36] "GET /animal_list/ HTTP/1.1" 200 14378
+[08/Jul/2025 07:33:36] "GET /static/css/stylesheet.css HTTP/1.1" 304 0
+[08/Jul/2025 07:33:40] "GET /animal_list/?csrfmiddlewaretoken=lng6xvPFIPpD1uZo9pwVIT63aUUIp3u3Um3fq4RpUcMOTiFdrI6bDhbULb3CDWVL&gender=Male&health_status=&enclosure__name__icontains= HTTP/1.1" 200 14378
+[08/Jul/2025 07:33:44] "GET /animal_list/?csrfmiddlewaretoken=nzUv46eLuF6NIYpa0nv15qCToz1Zy09cWyHEXFgvG2tYAM5ZiG5h0OHKZQaTMTAU&gender=Male&health_status=&enclosure__name__icontains= HTTP/1.1" 200 14378
