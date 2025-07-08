@@ -9505,3 +9505,75 @@ zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
 
 System check identified 9 issues (0 silenced).
 Error: That port is already in use.
+[08/Jul/2025 14:21:20] "GET /admin/ HTTP/1.1" 200 53128
+[08/Jul/2025 14:21:23] "GET /animal_list/ HTTP/1.1" 200 14375
+[08/Jul/2025 14:21:28] "GET /animal_list/?page=2 HTTP/1.1" 200 10808
+[08/Jul/2025 14:21:36] "GET /animal_list/ HTTP/1.1" 200 14375
+[08/Jul/2025 14:21:43] "GET /animal_list/?csrfmiddlewaretoken=R1JVN5vUeCvvDrkCmHZzH2WxWyl3jX1kbzjlZtYAWVeq8i0heFe6JRl9tnwv3cpF&gender=&health_status=Sick&enclosure__name__icontains= HTTP/1.1" 200 10715
+[08/Jul/2025 14:21:47] "GET /animal_list/?csrfmiddlewaretoken=FRsJJmH5VfxlkVt569ZCmfg0IfbRyW1sZp29VKaLDyggPM9KY7e9o4FCf4mjibpN&gender=&health_status=&enclosure__name__icontains= HTTP/1.1" 200 14375
+[08/Jul/2025 14:21:50] "GET /animal_list/?page=2 HTTP/1.1" 200 10808
+[08/Jul/2025 14:21:53] "GET /animal_list/?page=1 HTTP/1.1" 200 14375
+[08/Jul/2025 14:21:57] "GET /animal_list/?page=2 HTTP/1.1" 200 10808
+[08/Jul/2025 14:22:03] "GET /animal_list/?page=1 HTTP/1.1" 200 14375
+[08/Jul/2025 14:22:12] "GET /logout/ HTTP/1.1" 302 0
+[08/Jul/2025 14:22:12] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 14:22:17] "GET /admin/ HTTP/1.1" 302 0
+[08/Jul/2025 14:22:18] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3128
+[08/Jul/2025 14:24:10] "GET /login/?next=/admin/ HTTP/1.1" 200 3604
+/home/oloya/Desktop/Projects/ruth_app/afhms/canine/settings.py changed, reloading.
+Performing system checks...
+
+July 08, 2025 - 12:59:17
+Django version 5.2.4, using settings 'canine.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+[08/Jul/2025 14:43:12] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3128
+[08/Jul/2025 14:43:14] "GET /animal_list/?page=1 HTTP/1.1" 302 0
+[08/Jul/2025 14:43:14] "GET /login/?next=/animal_list/%3Fpage%3D1 HTTP/1.1" 200 3604
+[08/Jul/2025 14:43:14] "GET /animal_list/?page=2 HTTP/1.1" 302 0
+[08/Jul/2025 14:43:14] "GET /login/?next=/animal_list/%3Fpage%3D2 HTTP/1.1" 200 3604
+[08/Jul/2025 14:43:16] "GET /animal_list/?csrfmiddlewaretoken=FRsJJmH5VfxlkVt569ZCmfg0IfbRyW1sZp29VKaLDyggPM9KY7e9o4FCf4mjibpN&gender=&health_status=&enclosure__name__icontains= HTTP/1.1" 302 0
+[08/Jul/2025 14:43:16] "GET /login/?next=/animal_list/%3Fcsrfmiddlewaretoken%3DFRsJJmH5VfxlkVt569ZCmfg0IfbRyW1sZp29VKaLDyggPM9KY7e9o4FCf4mjibpN%26gender%3D%26health_status%3D%26enclosure__name__icontains%3D HTTP/1.1" 200 3604
+[08/Jul/2025 14:43:16] "GET /animal_list/?csrfmiddlewaretoken=R1JVN5vUeCvvDrkCmHZzH2WxWyl3jX1kbzjlZtYAWVeq8i0heFe6JRl9tnwv3cpF&gender=&health_status=Sick&enclosure__name__icontains= HTTP/1.1" 302 0
+[08/Jul/2025 14:43:17] "GET /login/?next=/animal_list/%3Fcsrfmiddlewaretoken%3DR1JVN5vUeCvvDrkCmHZzH2WxWyl3jX1kbzjlZtYAWVeq8i0heFe6JRl9tnwv3cpF%26gender%3D%26health_status%3DSick%26enclosure__name__icontains%3D HTTP/1.1" 200 3604
+[08/Jul/2025 14:43:17] "GET /animal_list/ HTTP/1.1" 302 0
+[08/Jul/2025 14:43:17] "GET /login/?next=/animal_list/ HTTP/1.1" 200 3604
+[08/Jul/2025 14:43:25] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 14:43:25] "GET /admin/ HTTP/1.1" 200 53125
+[08/Jul/2025 14:43:32] "POST /admin/logout/ HTTP/1.1" 302 0
+[08/Jul/2025 14:43:32] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 14:43:43] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 14:43:43] "GET /admin/ HTTP/1.1" 200 53125
+[08/Jul/2025 14:43:47] "GET /animal_list/ HTTP/1.1" 200 14375
+[08/Jul/2025 14:43:49] "GET /logout/ HTTP/1.1" 302 0
+[08/Jul/2025 14:43:49] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 14:43:56] "GET /animal_list/?csrfmiddlewaretoken=d1nrSwLGzguotg0neU0x82JwRlPS3Ml0mIwGeo9ca4nAmEFagjzQ2oY5kXCvIzdR&gender=&health_status=Healthy&enclosure__name__icontains= HTTP/1.1" 302 0
+[08/Jul/2025 14:43:56] "GET /login/?next=/animal_list/%3Fcsrfmiddlewaretoken%3Dd1nrSwLGzguotg0neU0x82JwRlPS3Ml0mIwGeo9ca4nAmEFagjzQ2oY5kXCvIzdR%26gender%3D%26health_status%3DHealthy%26enclosure__name__icontains%3D HTTP/1.1" 200 3604
+[08/Jul/2025 14:44:05] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 14:44:05] "GET /admin/ HTTP/1.1" 200 53125

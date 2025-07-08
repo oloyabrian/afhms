@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['3.88.154.134', 'localhost', '127.0.0.1']
 
 
-LOGIN_URL = 'login/'
+LOGIN_URL = '/login/'
 
 LOGOUT_REDIRECT_URL = '/login/'
 
