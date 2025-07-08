@@ -89,19 +89,21 @@ class AnimalListView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     
     def get(self, request):
-        animals = Animal.objects.all()
-        p = Paginator(Animal.objects.all(), 5)
-        page = request.GET.get('page')
-        animals_pg = p.get_page(page)
-        animal_count= animals.count()
-        myFilter=filters.AnimalFilter(request.GET, queryset=animals)
-        animals = myFilter.qs  # Get the filtered queryset
+        queryset = Animal.objects.all()
+        myFilter=filters.AnimalFilter(request.GET, queryset=queryset)
+        filtered_qs=myFilter.qs
+
+        paginator = Paginator(filtered_qs, 5)  # Show 5 animals per page    
+        page_number = request.GET.get('page')
+        animals_pg = paginator.get_page(page_number)
+
+        animal_count = filtered_qs.count()
+        
         context ={
 
-            'animals': animals,
+            'animals_pg': animals_pg,
             'myFilter': myFilter,
             'animal_count': animal_count,
-            'animals_pg' :animals_pg
         }
         return render(request, 'animal/animal_list.html', context)
 
@@ -177,15 +179,17 @@ def export_animals_xlsx(request):
 
 class EnclosureListView(View):
     def get(self, request):
-        enclosures = Enclosure.objects.all()
-        enclosure_pg = Paginator(Enclosure.objects.all(), 5)
-        page = request.GET.get('page')
-        enclosures_pg = enclosure_pg.get_page(page)
-        enclosures_count = enclosures.count()
-        myFilter = filters.EnclosureFilter(request.GET, queryset=enclosures)
+        queryset = Enclosure.objects.all()
+        myFilter = filters.EnclosureFilter(request.GET, queryset=queryset)
+        filtered_qs = myFilter.qs
+
+        paginator = Paginator(filtered_qs, 5)  # Show 5 enclosures per page
+        page_number = request.GET.get('page')
+        enclosures_pg = paginator.get_page(page_number)
+        enclosures_count = filtered_qs.count()
+        
         enclosures = myFilter.qs  # Get the filtered queryset
         context = {
-            'enclosures': enclosures,
             'myFilter': myFilter,
             'enclosures_count': enclosures_count,
             'enclosures_pg': enclosures_pg
@@ -236,15 +240,17 @@ def delete_enclosure(request, enclosure_id):
 class AnimalKeeperView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
-        animal_keeper = Animal_keeper.objects.all()
-        p = Paginator(Animal_keeper.objects.all(), 5)
-        page = request.GET.get('page')
-        animal_keeper_pg = p.get_page(page)
-        animal_keeper_count = animal_keeper.count()
-        myFilter = filters.AnimalKeeperFilter(request.GET, queryset=animal_keeper)
+        queryset = Animal_keeper.objects.all()
+        myFilter = filters.AnimalKeeperFilter(request.GET, queryset=queryset)
+        filtered_qs = myFilter.qs
+
+        paginator = Paginator(filtered_qs, 5)
+        page_number = request.GET.get('page')
+        animal_keeper_pg = paginator.get_page(page_number)
+        animal_keeper_count = filtered_qs.count()
+        
         animal_keeper = myFilter.qs  # Get the filtered queryset    
         context = {
-            'animal_keeper': animal_keeper,
             'myFilter': myFilter,
             'animal_keeper_count': animal_keeper_count,
             'animal_keeper_pg': animal_keeper_pg,
@@ -313,16 +319,15 @@ def export_animal_keepers_xlsx(request):
 class FeedingScheduleView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
-        feeding_schedule = FeedingSchedule.objects.all()
-        p = Paginator(FeedingSchedule.objects.all(), 5)
-        page = request.GET.get('page')
-        feeding_schedule_pg = p.get_page(page)
-        # Count the total number of feeding schedules
-        feeding_schedule_count = feeding_schedule.count()
-        myFilter = filters.FeedingScheduleFilter(request.GET, queryset=feeding_schedule)
-        feeding_schedule = myFilter.qs  # Get the filtered queryset
+        queryset = FeedingSchedule.objects.all()
+        myFilter = filters.FeedingScheduleFilter(request.GET, queryset=queryset)
+        filtered_qs = myFilter.qs
+
+        paginator = Paginator(filtered_qs, 5)
+        page_number = request.GET.get('page')
+        feeding_schedule_pg =paginator.get_page(page_number)
+        feeding_schedule_count = filtered_qs.count()
         context = {
-            'feeding_schedule': feeding_schedule,
             'myFilter': myFilter,
             'feeding_schedule_count': feeding_schedule_count,
             'feeding_schedule_pg': feeding_schedule_pg,
@@ -398,18 +403,17 @@ def export_feeding_schedule_xlsx(request):
 class SupplierView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
-        suppliers = Supplier.objects.all()
-        p = Paginator(Supplier.objects.all(), 5)
-        page = request.GET.get('page')
-        suppliers_pg = p.get_page(page)
-        # Count the total number of suppliers
-        suppliers_count = suppliers.count()
-        myFilter = filters.SupplierFilter(request.GET, queryset=suppliers)
-        suppliers = myFilter.qs  # Get the filtered queryset
+        queryset = Supplier.objects.all()
+        myFilter = filters.SupplierFilter(request.GET, queryset=queryset)
+        filtered_qs = myFilter.qs
+
+        paginator = Paginator(filtered_qs, 5)
+        page_number = request.GET.get('page')
+        suppliers_pg = paginator.get_page(page_number)
+        
         context = {
-            'suppliers': suppliers,
             'myFilter': myFilter,
-            'suppliers_count': suppliers_count,
+            'suppliers_count': filtered_qs.count(),
             'suppliers_pg': suppliers_pg,
         }
         return render(request, 'supplier/supplier_list.html', context)
@@ -473,15 +477,16 @@ def export_suppliers_xlsx(request):
 class SupplyView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
-        supplies = Supply.objects.all()
-        p = Paginator(Supply.objects.all(), 5)
-        page=request.GET.get('page')
-        supplies_pg = p.get_page(page)
-        supplies_count = supplies.count()
-        myFilter = filters.SupplyFilter(request.GET, queryset=supplies)
-        supplies = myFilter.qs
+        queryset = Supply.objects.all()
+        myFilter = filters.SupplyFilter(request.GET, queryset=queryset)
+        filtered_qs= myFilter.qs
+
+        paginator = Paginator(filtered_qs, 5)
+        page_number = request.GET.get('page')
+        supplies_pg = paginator.get_page(page_number)
+        supplies_count = filtered_qs.count()
+        
         context = {
-            'supplies': supplies,
             'myFilter': myFilter,
             'supplies_count': supplies_count,
             'supplies_pg':supplies_pg
@@ -545,15 +550,17 @@ def export_supplies_xlsx(request):
 class HealthCheckView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
-        health_checks = HealthCheck.objects.all()
-        p = Paginator(HealthCheck.objects.all(), 5)
-        page = request.GET.get('page')
-        health_checks_pg = p.get_page(page)
-        health_checks_count = health_checks.count()
-        myFilter = filters.HealthCheckFilter(request.GET, queryset=health_checks)
+        queryset = HealthCheck.objects.all()
+        myFilter = filters.HealthCheckFilter(request.GET, queryset=queryset)
+        filtered_qs = myFilter.qs
+
+        paginator = Paginator(filtered_qs, 5)
+        page_number = request.GET.get('page')
+        health_checks_pg = paginator.get_page(page_number)
+        health_checks_count = filtered_qs.count()
+        
         health_checks = myFilter.qs
         context = {
-            'health_checks': health_checks,
             'myFilter': myFilter,
             'health_checks_count': health_checks_count,
             'health_checks_pg': health_checks_pg
@@ -614,22 +621,32 @@ def export_health_checks_xlsx(request):
     response['Content-Disposition'] = 'attachment; filename="health_checks.xlsx"'
     return response
 
+from django.views import View
+from django.shortcuts import render
+from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Veterinarian
+from . import filters  # Assuming filters.VeterinarianFilter exists
+
 class VeterinarianView(LoginRequiredMixin, View):
     def get(self, request):
-        veterinarians = Veterinarian.objects.all()
-        p = Paginator(Veterinarian.objects.all(), 5)
-        page = request.GET.get('page')
-        veterinarians_pg=p.get_page(page)
-        veterinarians_count = veterinarians.count()
-        myFilter = filters.VeterinarianFilter(request.GET, queryset=veterinarians)
-        veterinarians = myFilter.qs  # Get the filtered queryset
+        # Filter first
+        queryset = Veterinarian.objects.all()
+        myFilter = filters.VeterinarianFilter(request.GET, queryset=queryset)
+        filtered_qs = myFilter.qs
+
+        # Then paginate
+        paginator = Paginator(filtered_qs, 5)
+        page_number = request.GET.get('page')
+        veterinarians_pg = paginator.get_page(page_number)
+
         context = {
-            'veterinarians': veterinarians,
-            'myFilter': myFilter,
-            'veterinarians_count': veterinarians_count,
             'veterinarians_pg': veterinarians_pg,
+            'myFilter': myFilter,
+            'veterinarians_count': filtered_qs.count(),
         }
         return render(request, 'vet/vet_list.html', context)
+
 
 
 @login_required(login_url='login')
