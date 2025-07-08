@@ -9087,3 +9087,421 @@ System check identified 9 issues (0 silenced).
 [08/Jul/2025 08:22:01] "GET /health_check_list/?csrfmiddlewaretoken=rl4pcV4xd9wtig0bn5CyTOOpsKI0oAWJ0kRy5u6hpwTEa4G0FocOOcTg31RUCtnr&animal__name__icontains=&veterinarian__first_name__icontains=&health_status=Sick HTTP/1.1" 200 7958
 [08/Jul/2025 08:22:05] "GET /health_check_list/?csrfmiddlewaretoken=fKxFYYQ9PkI0W8cYXtjRAzl4vz4l0gw1OJkORxST1H5bOWSNfMT7vXqV6Qdfe9XJ&animal__name__icontains=&veterinarian__first_name__icontains=&health_status=Healthy HTTP/1.1" 200 9015
 [08/Jul/2025 08:22:08] "GET /health_check_list/?csrfmiddlewaretoken=VU2Sri8VOgob3PU6HIIQb5szD29oUlLOuTP1kRaF0DLmVDAVZ1i66txqejii8ecw&animal__name__icontains=&veterinarian__first_name__icontains=&health_status= HTTP/1.1" 200 10117
+[08/Jul/2025 08:30:12] "GET /health_check_list/?csrfmiddlewaretoken=U0MjLckuwASeo7bivNNu0uA3SBpEVZNYtZzsELmeIXfpgVR7N6nKVSFUtSyy9SeG&animal__name__icontains=&veterinarian__first_name__icontains=con&health_status= HTTP/1.1" 200 6868
+[08/Jul/2025 08:30:18] "GET /health_check_list/?csrfmiddlewaretoken=H2fUFoK8pVuUum72BJBfSdLGpv733gPlg123yXMSBiR5maNRT2bvNBQx0MgXh9g3&animal__name__icontains=&veterinarian__first_name__icontains=&health_status= HTTP/1.1" 200 10117
+[08/Jul/2025 08:30:25] "GET /health_check_list/?csrfmiddlewaretoken=aYCm9J9yhwBmchydjVnyq2jGnt4BfUayJXpv2ibitTYx45e2BeXOlqoxYKdvtNBg&animal__name__icontains=&veterinarian__first_name__icontains=bri&health_status= HTTP/1.1" 200 7950
+[08/Jul/2025 08:30:28] "GET /update_health_check/5/ HTTP/1.1" 200 8032
+[08/Jul/2025 08:30:33] "GET /admin/ HTTP/1.1" 200 53062
+[08/Jul/2025 08:30:40] "GET /admin/auth/user/2/change/ HTTP/1.1" 200 55597
+[08/Jul/2025 08:30:41] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:30:41] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[08/Jul/2025 08:30:41] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[08/Jul/2025 08:30:41] "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[08/Jul/2025 08:30:41] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[08/Jul/2025 08:30:41] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[08/Jul/2025 08:30:41] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[08/Jul/2025 08:30:41] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[08/Jul/2025 08:30:41] "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+[08/Jul/2025 08:30:41] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[08/Jul/2025 08:30:41] "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+[08/Jul/2025 08:30:43] "GET /admin/ HTTP/1.1" 200 53062
+[08/Jul/2025 08:30:57] "GET /admin/zoo/animal_keeper/ HTTP/1.1" 200 42881
+[08/Jul/2025 08:30:58] "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+[08/Jul/2025 08:30:58] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:31:13] "GET /admin/zoo/animal_keeper/export/? HTTP/1.1" 200 46260
+[08/Jul/2025 08:31:43] "POST /admin/zoo/animal_keeper/export/? HTTP/1.1" 200 658
+[08/Jul/2025 08:33:56] "GET /admin/zoo/veterinarian/ HTTP/1.1" 200 43012
+[08/Jul/2025 08:33:56] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:34:07] "POST /admin/zoo/veterinarian/ HTTP/1.1" 302 0
+[08/Jul/2025 08:34:07] "GET /admin/zoo/veterinarian/ HTTP/1.1" 200 43582
+[08/Jul/2025 08:34:07] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:34:14] "POST /admin/logout/ HTTP/1.1" 200 2179
+[08/Jul/2025 08:35:38] "GET /logout/ HTTP/1.1" 302 0
+[08/Jul/2025 08:35:38] "GET /login/ HTTP/1.1" 200 3604
+/home/oloya/Desktop/Projects/ruth_app/afhms/canine/settings.py changed, reloading.
+Performing system checks...
+
+July 08, 2025 - 08:21:45
+Django version 5.2.4, using settings 'canine.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+/home/oloya/Desktop/Projects/ruth_app/afhms/canine/settings.py changed, reloading.
+Performing system checks...
+
+July 08, 2025 - 08:37:11
+Django version 5.2.4, using settings 'canine.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+/home/oloya/Desktop/Projects/ruth_app/afhms/canine/settings.py changed, reloading.
+Performing system checks...
+
+July 08, 2025 - 08:37:21
+Django version 5.2.4, using settings 'canine.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+Traceback (most recent call last):
+  File "/home/oloya/Desktop/Projects/ruth_app/afhms/manage.py", line 22, in <module>
+    main()
+  File "/home/oloya/Desktop/Projects/ruth_app/afhms/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/oloya/Desktop/Projects/ruth_app/afhms/venv/lib/python3.12/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/oloya/Desktop/Projects/ruth_app/afhms/venv/lib/python3.12/site-packages/django/core/management/__init__.py", line 382, in execute
+    settings.INSTALLED_APPS
+  File "/home/oloya/Desktop/Projects/ruth_app/afhms/venv/lib/python3.12/site-packages/django/conf/__init__.py", line 81, in __getattr__
+    self._setup(name)
+  File "/home/oloya/Desktop/Projects/ruth_app/afhms/venv/lib/python3.12/site-packages/django/conf/__init__.py", line 68, in _setup
+    self._wrapped = Settings(settings_module)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/oloya/Desktop/Projects/ruth_app/afhms/venv/lib/python3.12/site-packages/django/conf/__init__.py", line 166, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/oloya/Desktop/Projects/ruth_app/afhms/canine/settings.py", line 34
+    = '/login/'
+IndentationError: unexpected indent
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+[08/Jul/2025 08:38:20] "GET / HTTP/1.1" 302 0
+[08/Jul/2025 08:38:20] "GET /login/?next=/ HTTP/1.1" 200 3604
+[08/Jul/2025 08:38:31] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 08:38:31] "GET /admin/ HTTP/1.1" 200 53046
+[08/Jul/2025 08:38:41] "POST /admin/logout/ HTTP/1.1" 302 0
+[08/Jul/2025 08:38:41] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 08:38:54] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 08:38:54] "GET /admin/ HTTP/1.1" 200 53046
+[08/Jul/2025 08:38:59] "GET /animal_list/ HTTP/1.1" 200 14378
+[08/Jul/2025 08:39:01] "GET /logout/ HTTP/1.1" 302 0
+[08/Jul/2025 08:39:01] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 08:39:06] "GET /admin/ HTTP/1.1" 302 0
+[08/Jul/2025 08:39:06] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3128
+[08/Jul/2025 08:39:19] "GET /logout/ HTTP/1.1" 302 0
+[08/Jul/2025 08:39:19] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 08:39:21] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 08:39:22] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 08:39:30] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 08:39:30] "GET /admin/ HTTP/1.1" 200 53046
+[08/Jul/2025 08:39:34] "GET /admin/auth/group/ HTTP/1.1" 200 37825
+[08/Jul/2025 08:39:34] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:39:37] "GET /admin/auth/user/ HTTP/1.1" 200 49214
+[08/Jul/2025 08:39:37] "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[08/Jul/2025 08:39:37] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[08/Jul/2025 08:39:37] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:39:41] "GET /admin/zoo/animal/ HTTP/1.1" 200 57121
+[08/Jul/2025 08:39:41] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[08/Jul/2025 08:39:41] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:39:41] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[08/Jul/2025 08:39:50] "POST /admin/zoo/animal/ HTTP/1.1" 302 0
+[08/Jul/2025 08:39:50] "GET /admin/zoo/animal/ HTTP/1.1" 200 57623
+[08/Jul/2025 08:39:50] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:39:56] "GET /admin/zoo/animal/?health_status__exact=Sick&q= HTTP/1.1" 200 46604
+[08/Jul/2025 08:39:56] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:03] "POST /admin/zoo/animal/?health_status__exact=Sick&q= HTTP/1.1" 302 0
+[08/Jul/2025 08:40:03] "GET /admin/zoo/animal/?health_status__exact=Sick&q= HTTP/1.1" 200 39955
+[08/Jul/2025 08:40:03] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:07] "GET /admin/zoo/animal/?health_status__exact=Sick&q= HTTP/1.1" 200 39453
+[08/Jul/2025 08:40:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:11] "GET /admin/zoo/animal/?q= HTTP/1.1" 200 57399
+[08/Jul/2025 08:40:11] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:15] "GET /admin/zoo/animal/?gender__exact=Male&q= HTTP/1.1" 200 51152
+[08/Jul/2025 08:40:15] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:24] "GET /admin/zoo/animal/?gender__exact=Male&enclosure__id__exact=2&q= HTTP/1.1" 200 49208
+[08/Jul/2025 08:40:24] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:29] "GET /admin/zoo/animal/?gender__exact=Male&enclosure__id__exact=3&q= HTTP/1.1" 200 46845
+[08/Jul/2025 08:40:29] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:34] "POST /admin/zoo/animal/?gender__exact=Male&enclosure__id__exact=3&q= HTTP/1.1" 302 0
+[08/Jul/2025 08:40:34] "GET /admin/zoo/animal/?gender__exact=Male&enclosure__id__exact=3&q= HTTP/1.1" 200 47347
+[08/Jul/2025 08:40:34] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:51] "GET /admin/zoo/animal/?health_status__exact=Sick&q= HTTP/1.1" 200 46596
+[08/Jul/2025 08:40:51] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 08:40:56] "POST /admin/logout/ HTTP/1.1" 302 0
+[08/Jul/2025 08:40:56] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 08:50:14] "GET / HTTP/1.1" 302 0
+[08/Jul/2025 08:50:14] "GET /login/?next=/ HTTP/1.1" 200 3604
+[08/Jul/2025 08:50:14] "GET /static/images/logo.png HTTP/1.1" 200 29281
+Not Found: /favicon.ico
+[08/Jul/2025 08:50:16] "GET /favicon.ico HTTP/1.1" 404 13138
+[08/Jul/2025 08:50:23] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 08:50:23] "GET /admin/ HTTP/1.1" 200 53097
+[08/Jul/2025 08:50:23] "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[08/Jul/2025 08:50:23] "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[08/Jul/2025 08:50:23] "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 200 164819
+[08/Jul/2025 08:50:23] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[08/Jul/2025 08:50:23] "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[08/Jul/2025 08:50:23] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[08/Jul/2025 08:50:24] "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[08/Jul/2025 08:50:24] "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[08/Jul/2025 08:50:24] "GET /static/jazzmin/js/ui-builder.js HTTP/1.1" 200 13873
+[08/Jul/2025 08:50:24] "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[08/Jul/2025 08:50:24] "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[08/Jul/2025 08:50:30] "GET /animal_list/ HTTP/1.1" 200 14375
+[08/Jul/2025 08:50:30] "GET /static/css/stylesheet.css HTTP/1.1" 200 3590
+[08/Jul/2025 08:50:55] "GET /animal_list/?csrfmiddlewaretoken=49gIhql2TfT47JyffnPrxkcRghTnENJUz9eHg0uwJmJkPEBQpGXcv1f0SHV5t6jJ&gender=&health_status=Sick&enclosure__name__icontains= HTTP/1.1" 200 10715
+[08/Jul/2025 08:51:02] "GET /animal_list/?csrfmiddlewaretoken=KQ9gU2z6GRLycSWIB7eFAuqszWlBGcghfQ7fTCIAwYBOUNZjLqmqybtBbmnjvvQ6&gender=&health_status=Healthy&enclosure__name__icontains= HTTP/1.1" 200 14307
+/home/oloya/Desktop/Projects/ruth_app/afhms/zoo/views.py:557: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'zoo.models.HealthCheck'> QuerySet.
+  paginator = Paginator(filtered_qs, 5)
+[08/Jul/2025 08:51:09] "GET /health_check_list/ HTTP/1.1" 200 10117
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+Error: That port is already in use.
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+Error: That port is already in use.
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+Error: That port is already in use.
+Performing system checks...
+
+July 08, 2025 - 08:38:07
+Django version 5.2.4, using settings 'canine.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+[08/Jul/2025 12:59:36] "GET / HTTP/1.1" 200 1898
+[08/Jul/2025 12:59:46] "GET /login/ HTTP/1.1" 302 0
+[08/Jul/2025 12:59:46] "GET / HTTP/1.1" 200 1898
+[08/Jul/2025 12:59:49] "GET /login/ HTTP/1.1" 302 0
+[08/Jul/2025 12:59:49] "GET / HTTP/1.1" 200 1898
+[08/Jul/2025 12:59:54] "GET /admin/ HTTP/1.1" 200 53128
+[08/Jul/2025 12:59:59] "POST /admin/logout/ HTTP/1.1" 302 0
+[08/Jul/2025 12:59:59] "GET /login/ HTTP/1.1" 200 3604
+[08/Jul/2025 13:00:06] "GET / HTTP/1.1" 302 0
+[08/Jul/2025 13:00:06] "GET /login/?next=/ HTTP/1.1" 200 3604
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+Error: That port is already in use.
+[08/Jul/2025 14:03:48] "GET / HTTP/1.1" 302 0
+[08/Jul/2025 14:03:48] "GET /login/?next=/ HTTP/1.1" 200 3604
+[08/Jul/2025 14:03:58] "POST /login/ HTTP/1.1" 302 0
+[08/Jul/2025 14:03:58] "GET /admin/ HTTP/1.1" 200 53128
+[08/Jul/2025 14:04:09] "GET /admin/zoo/supply/ HTTP/1.1" 200 42776
+[08/Jul/2025 14:04:10] "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[08/Jul/2025 14:04:10] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[08/Jul/2025 14:04:10] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[08/Jul/2025 14:04:10] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[08/Jul/2025 14:04:10] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[08/Jul/2025 14:04:10] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[08/Jul/2025 14:04:10] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[08/Jul/2025 14:04:10] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[08/Jul/2025 14:04:10] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[08/Jul/2025 14:04:10] "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+[08/Jul/2025 14:04:10] "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+zoo.Animal.arrival_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Animal_keeper.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.checkup_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.follow_up_notes: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.HealthCheck.next_checkup: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Supply.delivery_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+zoo.Veterinarian.hire_date: (fields.W161) Fixed default value provided.
+	HINT: It seems you set a fixed date / time / datetime value as default for this field. This may not be what you want. If you want to have the current date as default, use `django.utils.timezone.now`
+
+System check identified 9 issues (0 silenced).
+Error: That port is already in use.

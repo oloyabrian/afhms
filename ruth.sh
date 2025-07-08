@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "this should be able to change the directory"
-
-cd /Desktop/Projects/ruth_app/afhms
-
+cd ~/Desktop/Projects/ruth_app/afhms || exit
+source venv/bin/activate
+nohup python manage.py runserver &
+echo "Server started. Access it at http://localhost:8000"
