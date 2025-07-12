@@ -9,6 +9,8 @@ from zoo.admin import AnimalResource
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
 
 from zoo.decorators import allowed_users, unauthenticated_user, admin_only 
 
@@ -68,6 +70,7 @@ def logout_view(request):
 # @login_required(login_url= 'login')
 from django.conf import settings
 
+@never_cache
 def home_view(request):
     if not request.user.is_authenticated:
         return redirect(f"{settings.LOGIN_URL}?next={request.path}")
@@ -83,7 +86,7 @@ def userPage(request):
     return render(request, 'user.html', context)
 
 
-
+@method_decorator(never_cache, name='dispatch')
 # Create your views here.
 class AnimalListView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
@@ -108,6 +111,7 @@ class AnimalListView(LoginRequiredMixin, View):
         return render(request, 'animal/animal_list.html', context)
 
 
+@method_decorator(never_cache, name='dispatch')
 class AnimalDetailView(LoginRequiredMixin, View):
     login_url = 'login'
 
@@ -116,6 +120,7 @@ class AnimalDetailView(LoginRequiredMixin, View):
         return render(request, 'animal/animal_detail.html', {'animal': animal})
 
 
+@never_cache
 # Add Animal View
 @login_required(login_url= 'login')
 def add_animals(request):
@@ -132,6 +137,7 @@ def add_animals(request):
    return render(request, "animal/add_animals.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def update_animal(request, animal_id):
     animal = get_object_or_404(Animal, id=animal_id)
@@ -151,6 +157,7 @@ def update_animal(request, animal_id):
     return render(request, "animal/add_animals.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def delete_animal(request, animal_id):
     animal = Animal.objects.get(id=animal_id)
@@ -162,6 +169,7 @@ def delete_animal(request, animal_id):
     return render(request, 'delete.html', {'obj': animal})
 
 
+@never_cache
 @login_required(login_url= 'login')
 def export_animals_csv(request):
     dataset = AnimalResource().export()
@@ -170,6 +178,7 @@ def export_animals_csv(request):
     return response
 
 
+@never_cache
 @login_required(login_url= 'login')
 def export_animals_xlsx(request):
     dataset = AnimalResource().export()
@@ -177,6 +186,7 @@ def export_animals_xlsx(request):
     response['Content-Disposition'] = 'attachment; filename="animals.xlsx"'
     return response
 
+@method_decorator(never_cache, name='dispatch')
 class EnclosureListView(View):
     def get(self, request):
         queryset = Enclosure.objects.all()
@@ -197,7 +207,7 @@ class EnclosureListView(View):
         return render(request, 'enclosure/enclosure_list.html', context)
     
 
-   
+@never_cache
 @login_required(login_url= 'login')   
 def add_enclosure(request):
     form = EnclosureForm(request.POST or None)
@@ -211,6 +221,7 @@ def add_enclosure(request):
     }
     return render(request, "enclosure/add_enclosure.html", context)
 
+@never_cache
 @login_required(login_url= 'login')
 def update_enclosure(request, enclosure_id):
     enclosure = Enclosure.objects.get(id=enclosure_id)
@@ -228,6 +239,7 @@ def update_enclosure(request, enclosure_id):
     return render(request, "enclosure/add_enclosure.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def delete_enclosure(request, enclosure_id):
     enclosure = Enclosure.objects.get(id=enclosure_id)
@@ -237,8 +249,10 @@ def delete_enclosure(request, enclosure_id):
         return redirect('enclosure_list')
     return render(request, 'delete.html', {'obj': enclosure})
 
+
+@method_decorator(never_cache, name='dispatch')
 class AnimalKeeperView(LoginRequiredMixin, View):
-    login_url = 'login'  # redirect URL for unauthenticated users
+    login_url = 'login'# redirect URL for unauthenticated users
     def get(self, request):
         queryset = Animal_keeper.objects.all()
         myFilter = filters.AnimalKeeperFilter(request.GET, queryset=queryset)
@@ -258,6 +272,7 @@ class AnimalKeeperView(LoginRequiredMixin, View):
         return render(request, 'keepers/keeper_list.html', context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def add_animal_keeper(request):
     form = AnimalKeeperForm(request.POST or None)
@@ -272,6 +287,7 @@ def add_animal_keeper(request):
     return render(request, "keepers/add_keeper.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def update_animal_keeper(request, animal_keeper_id):
     animal_keeper = Animal_keeper.objects.get(id=animal_keeper_id)
@@ -290,6 +306,7 @@ def update_animal_keeper(request, animal_keeper_id):
     return render(request, "keepers/add_keeper.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def delete_animal_keeper(request, animal_keeper_id):
     animal_keeper = Animal_keeper.objects.get(id=animal_keeper_id)
@@ -300,6 +317,7 @@ def delete_animal_keeper(request, animal_keeper_id):
     return render(request, 'delete.html', {'obj': animal_keeper})
 
 
+@never_cache
 @login_required(login_url= 'login')
 def export_animal_keepers_csv(request):
     dataset = AnimalResource().export()
@@ -308,6 +326,7 @@ def export_animal_keepers_csv(request):
     return response
 
 
+@never_cache
 @login_required(login_url= 'login')
 def export_animal_keepers_xlsx(request):
     dataset = AnimalResource().export()
@@ -316,8 +335,9 @@ def export_animal_keepers_xlsx(request):
     return response
 
 
+@method_decorator(never_cache, name='dispatch')
 class FeedingScheduleView(LoginRequiredMixin, View):
-    login_url = 'login'  # redirect URL for unauthenticated users
+    login_url = 'login'# redirect URL for unauthenticated users
     def get(self, request):
         queryset = FeedingSchedule.objects.all()
         myFilter = filters.FeedingScheduleFilter(request.GET, queryset=queryset)
@@ -335,6 +355,7 @@ class FeedingScheduleView(LoginRequiredMixin, View):
         return render(request, 'feeding/feeding_list.html', context)
 
 
+@never_cache
 @login_required(login_url='login')
 def delete_animal_keeper(request, animal_keeper_id):
     animal_keeper = Animal_keeper.objects.get(id=animal_keeper_id)
@@ -344,6 +365,8 @@ def delete_animal_keeper(request, animal_keeper_id):
         return redirect('animal_keeper_list')
     return render(request, 'delete.html', {'obj': animal_keeper})
 
+
+@never_cache
 @login_required(login_url='login')
 def add_feeding_schedule(request):
     form = FeedingScheduleForm(request.POST or None)
@@ -358,6 +381,7 @@ def add_feeding_schedule(request):
     return render(request, "feeding/add_feeding.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def update_feeding_schedule(request, feeding_schedule_id):
     feeding_schedule = FeedingSchedule.objects.get(id=feeding_schedule_id)
@@ -375,6 +399,7 @@ def update_feeding_schedule(request, feeding_schedule_id):
     return render(request, "feeding/add_feeding.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def delete_feeding_schedule(request, feeding_schedule_id):
     feeding_schedule = FeedingSchedule.objects.get(id=feeding_schedule_id)
@@ -385,6 +410,7 @@ def delete_feeding_schedule(request, feeding_schedule_id):
     return render(request, 'delete.html', {'obj': feeding_schedule})
 
 
+@never_cache
 @login_required(login_url= 'login')
 def export_feeding_schedule_csv(request):
     dataset = AnimalResource().export()
@@ -392,6 +418,8 @@ def export_feeding_schedule_csv(request):
     response['Content-Disposition'] = 'attachment; filename="feeding_schedule.csv"'
     return response
 
+
+@never_cache
 @login_required(login_url= 'login')
 def export_feeding_schedule_xlsx(request):      
     dataset = AnimalResource().export()
@@ -400,6 +428,7 @@ def export_feeding_schedule_xlsx(request):
     return response
 
 
+@method_decorator(never_cache, name='dispatch')
 class SupplierView(LoginRequiredMixin, View):
     login_url = 'login'  # redirect URL for unauthenticated users
     def get(self, request):
@@ -419,6 +448,7 @@ class SupplierView(LoginRequiredMixin, View):
         return render(request, 'supplier/supplier_list.html', context)
 
 
+@never_cache
 @login_required(login_url='login')
 def add_supplier(request):
     form = SupplierForm(request.POST or None)
@@ -433,6 +463,7 @@ def add_supplier(request):
     return render(request, "supplier/add_supplier.html", context)  
 
 
+@never_cache
 @login_required(login_url= 'login')
 def update_supplier(request, supplier_id):  
     supplier = Supplier.objects.get(id=supplier_id)
@@ -450,6 +481,7 @@ def update_supplier(request, supplier_id):
     return render(request, "supplier/add_supplier.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def delete_supplier(request, supplier_id):
     supplier = Supplier.objects.get(id=supplier_id)
@@ -459,7 +491,7 @@ def delete_supplier(request, supplier_id):
         return redirect('supplier_list')
     return render(request, 'delete.html', {'obj': supplier})
 
-
+@never_cache
 @login_required(login_url= 'login')
 def export_suppliers_csv(request):  
     dataset = AnimalResource().export()
@@ -467,6 +499,7 @@ def export_suppliers_csv(request):
     response['Content-Disposition'] = 'attachment; filename="suppliers.csv"'
     return response
 
+@never_cache
 @login_required(login_url= 'login')
 def export_suppliers_xlsx(request):
     dataset = AnimalResource().export()
@@ -474,8 +507,10 @@ def export_suppliers_xlsx(request):
     response['Content-Disposition'] = 'attachment; filename="suppliers.xlsx"'
     return response
 
+
+@method_decorator(never_cache, name='dispatch')
 class SupplyView(LoginRequiredMixin, View):
-    login_url = 'login'  # redirect URL for unauthenticated users
+    login_url = 'login' # redirect URL for unauthenticated users
     def get(self, request):
         queryset = Supply.objects.all()
         myFilter = filters.SupplyFilter(request.GET, queryset=queryset)
@@ -492,7 +527,8 @@ class SupplyView(LoginRequiredMixin, View):
             'supplies_pg':supplies_pg
         }
         return render(request, 'supply/supply_list.html', context)
-    
+
+@never_cache 
 @login_required(login_url='login')
 def add_supply(request):
     form = SupplyForm(request.POST or None)
@@ -524,6 +560,7 @@ def update_supply(request, supply_id):
     return render(request, "supply/add_supply.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def delete_supply(request, supply_id):
     supply = Supply.objects.get(id=supply_id)
@@ -533,6 +570,7 @@ def delete_supply(request, supply_id):
         return redirect('supply_list')
     return render(request, 'delete.html', {'obj': supply})
 
+@never_cache
 @login_required(login_url= 'login')
 def export_supplies_csv(request):
     dataset = AnimalResource().export()
@@ -547,8 +585,10 @@ def export_supplies_xlsx(request):
     response['Content-Disposition'] = 'attachment; filename="supplies.xlsx"'
     return response
 
+
+@method_decorator(never_cache, name='dispatch')
 class HealthCheckView(LoginRequiredMixin, View):
-    login_url = 'login'  # redirect URL for unauthenticated users
+    login_url = 'login'  # redirect URL for unauthenticated users  # redirect URL for unauthenticated users
     def get(self, request):
         queryset = HealthCheck.objects.all()
         myFilter = filters.HealthCheckFilter(request.GET, queryset=queryset)
@@ -567,6 +607,7 @@ class HealthCheckView(LoginRequiredMixin, View):
         }
         return render(request, 'health/health_list.html', context)
 
+@never_cache
 @login_required(login_url='login')
 def add_health_check(request):
     form = HealthCheckForm(request.POST or None)
@@ -581,6 +622,8 @@ def add_health_check(request):
     return render(request, "health/add_health.html", context)
 
 
+
+@never_cache
 @login_required(login_url= 'login')
 def update_health_check(request, health_check_id):  
     health_check = HealthCheck.objects.get(id=health_check_id)
@@ -597,7 +640,7 @@ def update_health_check(request, health_check_id):
     }
     return render(request, "health/add_health.html", context)
 
-
+@never_cache
 @login_required(login_url= 'login')
 def delete_health_check(request, health_check_id):
     health_check = HealthCheck.objects.get(id=health_check_id)
@@ -607,6 +650,8 @@ def delete_health_check(request, health_check_id):
         return redirect('health_check_list')
     return render(request, 'delete.html', {'obj': health_check})
 
+
+@never_cache
 @login_required(login_url= 'login')
 def export_health_checks_csv(request):
     dataset = AnimalResource().export()
@@ -614,6 +659,8 @@ def export_health_checks_csv(request):
     response['Content-Disposition'] = 'attachment; filename="health_checks.csv"'
     return response
 
+
+@never_cache
 @login_required(login_url= 'login')
 def export_health_checks_xlsx(request):
     dataset = AnimalResource().export()
@@ -628,6 +675,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Veterinarian
 from . import filters  # Assuming filters.VeterinarianFilter exists
 
+
+
+@method_decorator(never_cache, name='dispatch')
 class VeterinarianView(LoginRequiredMixin, View):
     def get(self, request):
         # Filter first
@@ -648,7 +698,7 @@ class VeterinarianView(LoginRequiredMixin, View):
         return render(request, 'vet/vet_list.html', context)
 
 
-
+@never_cache
 @login_required(login_url='login')
 def add_veterinarian(request):
     form = VeterinarianForm(request.POST or None)
@@ -663,6 +713,7 @@ def add_veterinarian(request):
     return render(request, "vet/add_vet.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def update_veterinarian(request, veterinarian_id):
     veterinarian = Veterinarian.objects.get(id=veterinarian_id)
@@ -680,6 +731,7 @@ def update_veterinarian(request, veterinarian_id):
     return render(request, "vet/add_vet.html", context)
 
 
+@never_cache
 @login_required(login_url= 'login')
 def delete_veterinarian(request, veterinarian_id):
     veterinarian = Veterinarian.objects.get(id=veterinarian_id)
@@ -689,6 +741,8 @@ def delete_veterinarian(request, veterinarian_id):
         return redirect('vet_list')
     return render(request, 'delete.html', {'obj': veterinarian})
 
+
+@never_cache
 @login_required(login_url= 'login')
 def export_veterinariaenclosure_lists_csv(request):  
     dataset = AnimalResource().export()
@@ -697,7 +751,7 @@ def export_veterinariaenclosure_lists_csv(request):
     return response
 
 
-@login_required(login_url='login')
+@never_cache
 def export_veterinarians_xlsx(request):
     dataset = AnimalResource().export()
     response = HttpResponse(dataset.xlsx, content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
